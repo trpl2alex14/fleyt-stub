@@ -1,8 +1,8 @@
 {
-  "short_name": "fleyt-stub",
-  "name": "",
+  "short_name": "Флэйт",
+  "name": "Радиаторы Флэйт",
   "icons": [{
-    "src": "icon.png",
+    "src": "/img/app_icon.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
