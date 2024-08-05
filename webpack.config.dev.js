@@ -8,6 +8,17 @@ module.exports = merge(common, {
     liveReload: true,
     hot: true,
     open: true,
-    static: ['./'],
+    static: ['./src/'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(scss|css)$/,
+        use: [
+          'style-loader',
+          'css-loader', 'postcss-loader', 'sass-loader'
+        ],
+      },
+    ],
   },
 });

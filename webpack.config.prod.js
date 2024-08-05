@@ -2,25 +2,45 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader', 'postcss-loader', 'sass-loader'
+        ],
+      },
+    ],
+  },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './src/index.html',
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'img', to: 'img' },
-        { from: 'css', to: 'css' },
-        { from: 'js/vendor', to: 'js/vendor' },
-        { from: 'icon.svg', to: 'icon.svg' },
-        { from: 'favicon.ico', to: 'favicon.ico' },
-        { from: 'robots.txt', to: 'robots.txt' },
-        { from: 'icon.png', to: 'icon.png' },
-        { from: '404.html', to: '404.html' },
-        { from: 'site.webmanifest', to: 'site.webmanifest' },
+         { from: 'src/img', to: 'img' },
+         { from: 'src/css', to: 'css' },
+         { from: 'src/favicon.svg', to: 'favicon.svg' },
+         { from: 'src/favicon.ico', to: 'favicon.ico' },
+         { from: 'src/robots.txt', to: 'robots.txt' },
+         { from: 'src/404.html', to: '404.html' },
+         { from: 'src/site.webmanifest', to: 'site.webmanifest' },
       ],
     }),
+
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+    })
   ],
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
 });

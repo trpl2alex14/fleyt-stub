@@ -14,9 +14,11 @@
     "build": "webpack --config webpack.config.prod.js"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.0",
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^9.6.0",
     "sass": "^1.77.8",
