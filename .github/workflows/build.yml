@@ -1,5 +1,5 @@
 name: Build fleyt stub
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: Build and deploy ${{ github.GITHUB_REPOSITORY }}
 on:
   push:
     branches: [ master ]
@@ -28,6 +28,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           source: ${{ env.BUILD_SCRIPT_OUTPUT }}
-          target: ${{ env.DEPLOY_PATH }}/${{ env.GITHUB_REPOSITORY }}
+          target: ${{ env.DEPLOY_PATH }}/${{ github.GITHUB_REPOSITORY }}
 
 
