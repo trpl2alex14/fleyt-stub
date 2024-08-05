@@ -31,12 +31,12 @@ jobs:
           target: ${{ env.DEPLOY_PATH }}
           rm: true
       - name: executing remote ssh commands
-          uses: appleboy/ssh-action@v1.0.3
-          with:
-            host: ${{ secrets.IP_HOST }}
-            username: ${{ secrets.SSH_USER }}
-            port: ${{ secrets.SSH_PORT }}
-            key: ${{ secrets.SSH_KEY }}
-            script: |
-              docker compose -f ~/${{ env.DEPLOY_PATH }}/docker/docker-compose.yml up -d
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.IP_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            docker compose -f ~/${{ env.DEPLOY_PATH }}/docker/docker-compose.yml up -d
 
