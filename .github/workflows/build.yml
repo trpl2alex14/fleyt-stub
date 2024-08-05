@@ -38,5 +38,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            docker compose down
             docker compose -f ~/${{ env.DEPLOY_PATH }}/docker/docker-compose.yml up -d
 
