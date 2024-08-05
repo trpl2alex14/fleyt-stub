@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
 env:
-  DEPLOY_PATH: /var/www/
+  DEPLOY_PATH: fleyt-stub/
   BUILD_SCRIPT_OUTPUT: dist
 jobs:
   build-prod:
@@ -28,6 +28,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           source: ${{ env.BUILD_SCRIPT_OUTPUT }}
-          target: ${{ env.DEPLOY_PATH }}/${{ github.GITHUB_REPOSITORY }}
+          target: ${{ env.DEPLOY_PATH }}
+          rm: true
 
 
