@@ -3,9 +3,13 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: [ master ]
+env:
+  DEPLOY_PATH: /var/www/
+  BUILD_SCRIPT_OUTPUT: dist
 jobs:
   build-prod:
     runs-on: ubuntu-latest
+#    needs: tests
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository code
@@ -14,4 +18,16 @@ jobs:
         run: npm install
       - name: Run build
         run: npm run build
+      - name: Start deploy
+        run: echo "Deploy ..."
+      - name: copy file via ssh key
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.IP_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          source: ${{ env.BUILD_SCRIPT_OUTPUT }}
+          target: ${{ env.DEPLOY_PATH }}/${{ env.GITHUB_REPOSITORY }}
+
 
