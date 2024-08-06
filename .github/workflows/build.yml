@@ -42,7 +42,7 @@ jobs:
             find ~/${{ env.DEPLOY_PATH }} -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' | sort -rnk1 | awk 'NR>5 { sub(/^\S+ /, "", $0); system("rm -rf \"" $0 "\"")}'
             rm -rf /var/www/${{ env.HOST_NAME }}
             ln -s ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/${{ env.BUILD_SCRIPT_OUTPUT }} /var/www/${{ env.HOST_NAME }}
-            docker compose down
+            docker stop $(docker ps -a -q)
             rm -rf ~/docker
             ln -s ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/docker ~/docker
             docker compose -f ~/docker/docker-compose.yml up -d
