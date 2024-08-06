@@ -23,6 +23,10 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new HtmlWebpackPlugin({
+      filename: '404.html',
+      template: './src/404.html',
+    }),
     new CopyPlugin({
       patterns: [
          { from: 'src/img', to: 'img' },
@@ -30,7 +34,6 @@ module.exports = merge(common, {
          { from: 'src/favicon.svg', to: 'favicon.svg' },
          { from: 'src/favicon.ico', to: 'favicon.ico' },
          { from: 'src/robots.txt', to: 'robots.txt' },
-         { from: 'src/404.html', to: '404.html' },
          { from: 'src/site.webmanifest', to: 'site.webmanifest' },
       ],
     }),
