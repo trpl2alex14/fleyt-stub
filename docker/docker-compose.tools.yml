@@ -1,0 +1,14 @@
+services:
+
+  nginx:
+    extends:
+      file: docker-compose.yml
+      service: nginx
+  certbot:
+    image: certbot/certbot:latest
+    depends_on:
+      - nginx
+    volumes:
+      - /var/www/certbot/:/var/www/certbot/:rw
+      - ~/certbot/conf/:/etc/letsencrypt/:rw
+    command: certonly --webroot --webroot-path=/var/www/certbot/ --email ${ADMIN_EMAIL} --agree-tos --no-eff-email --force-renewal -d ${DOMAIN} -d www.${DOMAIN}

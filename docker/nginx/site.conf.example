@@ -2,11 +2,11 @@ server {
         listen 80;
         listen [::]:80;
 
-        server_name fleyt.ru, www.fleyt.ru;
+        server_name $DOMAIN, www.$DOMAIN;
 
         server_tokens off;
 
-        root /var/www/fleyt.ru;
+        root /var/www/$DOMAIN;
         index index.html index.htm;
 
         location /.well-known/acme-challenge/ {
@@ -21,4 +21,19 @@ server {
         location ~ /\.ht {
             deny all;
         }
+}
+
+
+server {
+    listen 443 default_server ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name $DOMAIN, www.$DOMAIN;
+
+    ssl_certificate /etc/nginx/ssl/live/$DOMAIN/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/$DOMAIN/privkey.pem;
+
+    location / {
+    	proxy_pass http://$DOMAIN;
+    }
 }
