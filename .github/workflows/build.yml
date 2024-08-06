@@ -42,7 +42,7 @@ jobs:
             echo "DOMAIN=${{ secrets.DOMAIN }}" >> ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/docker/.env
             echo "ADMIN_EMAIL=${{ secrets.ADMIN_EMAIL }}" >> ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/docker/.env
             export DOMAIN=${{ secrets.DOMAIN }}
-            envsubst < ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/docker/nginx/site.conf.example > ./docker/nginx/${{ secrets.DOMAIN }}.conf
+            envsubst < ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/docker/nginx/site.conf.example > ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/docker/nginx/${{ secrets.DOMAIN }}.conf
             find ~/${{ env.DEPLOY_PATH }} -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' | sort -rnk1 | awk 'NR>5 { sub(/^\S+ /, "", $0); system("rm -rf \"" $0 "\"")}'
             docker stop $(docker ps -a -q)
             rm -rf /var/www/${{ env.HOST_NAME }}
@@ -50,4 +50,6 @@ jobs:
             rm -rf ~/docker
             ln -s ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/docker ~/docker
             docker compose -f ~/docker/docker-compose.yml up -d --remove-orphans
+            echo "Run nginx" \
+              > log.txt
 
