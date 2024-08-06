@@ -4,10 +4,11 @@ on:
   push:
     branches: [ master ]
 env:
+  HOST_NAME: fleyt.ru
   DEPLOY_PATH: fleyt.stub/
-  BUILD_SCRIPT_OUTPUT: "dist, docker"
+  BUILD_SCRIPT_OUTPUT: dist
 jobs:
-  build-prod:
+  build-and-deploy:
     runs-on: ubuntu-latest
 #    needs: tests
     steps:
@@ -27,8 +28,8 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
-          source: ${{ env.BUILD_SCRIPT_OUTPUT }}
-          target: ${{ env.DEPLOY_PATH }}
+          source: ${{ env.BUILD_SCRIPT_OUTPUT }}, docker
+          target: ${{ env.DEPLOY_PATH }}/${{ github.GITHUB_SHA }}
           rm: true
       - name: executing remote ssh commands
         uses: appleboy/ssh-action@v1.0.3
@@ -38,6 +39,11 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            find ~/${{ env.DEPLOY_PATH }} -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' | sort -rnk1 | awk 'NR>5 { sub(/^\S+ /, "", $0); system("rm -rf \"" $0 "\"")}'
+            rm -rf /var/www/${{ env.HOST_NAME }}
+            ln -s ${{ env.DEPLOY_PATH }}/${{ github.GITHUB_SHA }}/${{ env.BUILD_SCRIPT_OUTPUT }} /var/www/${{ env.HOST_NAME }}
             docker compose down
-            docker compose -f ~/${{ env.DEPLOY_PATH }}/docker/docker-compose.yml up -d
+            rm -rf ~/docker
+            ln -s ${{ env.DEPLOY_PATH }}/${{ github.GITHUB_SHA }}/docker ~/docker
+            docker compose -f ~/docker/docker-compose.yml up -d
 

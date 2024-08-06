@@ -1,13 +1,12 @@
-version: '3.0'
-
 services:
 
   nginx:
     image: nginx:alpine
     container_name: nginx
+    restart: always
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./../dist:/var/www/fleyt.stub
+      - /var/www/fleyt.ru:/var/www/fleyt.ru
       - ./nginx:/etc/nginx/conf.d
