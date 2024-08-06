@@ -29,7 +29,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           source: ${{ env.BUILD_SCRIPT_OUTPUT }}, docker
-          target: ${{ env.DEPLOY_PATH }}/${GITHUB_SHA}
+          target: ${{ env.DEPLOY_PATH }}/${{GITHUB_SHA}}
           rm: true
       - name: executing remote ssh commands
         uses: appleboy/ssh-action@v1.0.3
@@ -41,9 +41,9 @@ jobs:
           script: |
             find ~/${{ env.DEPLOY_PATH }} -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' | sort -rnk1 | awk 'NR>5 { sub(/^\S+ /, "", $0); system("rm -rf \"" $0 "\"")}'
             rm -rf /var/www/${{ env.HOST_NAME }}
-            ln -s ~/${{ env.DEPLOY_PATH }}/${GITHUB_SHA}/${{ env.BUILD_SCRIPT_OUTPUT }} /var/www/${{ env.HOST_NAME }}
+            ln -s ~/${{ env.DEPLOY_PATH }}/${{GITHUB_SHA}}/${{ env.BUILD_SCRIPT_OUTPUT }} /var/www/${{ env.HOST_NAME }}
             docker compose down
             rm -rf ~/docker
-            ln -s ~/${{ env.DEPLOY_PATH }}/${GITHUB_SHA}/docker ~/docker
+            ln -s ~/${{ env.DEPLOY_PATH }}/${{GITHUB_SHA}}/docker ~/docker
             docker compose -f ~/docker/docker-compose.yml up -d
 
