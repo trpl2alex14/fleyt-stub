@@ -163,6 +163,9 @@ a {
     gap: 30px;
     padding: 20px 0;
     border-top: 1px solid $color-light;
+    &--center {
+      justify-content: center;
+    }
   }
 }
 

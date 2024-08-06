@@ -9,4 +9,12 @@ services:
       - 443:443
     volumes:
       - /var/www/fleyt.ru:/var/www/fleyt.ru
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx:/etc/nginx/conf.d/:ro
+      - /var/www/certbot/:/var/www/certbot/:ro
+  certbot:
+    image: certbot/certbot:latest
+    depends_on:
+      - nginx
+    volumes:
+      - /var/www/certbot/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
