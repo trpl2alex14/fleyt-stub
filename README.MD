@@ -1,1 +1,5 @@
-#Fleyt stub page
+##Fleyt stub page
+
+Deploy from git actions
+-nginx
+-certbot
