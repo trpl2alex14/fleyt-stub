@@ -52,4 +52,3 @@ jobs:
             chmod +x ~/docker/renew-cert-ssl.sh
             cp ~/docker/renew-cert-ssl.sh /etc/cron.monthly
             docker compose -f ~/docker/docker-compose.yml up -d --remove-orphans
-
