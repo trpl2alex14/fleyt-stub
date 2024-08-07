@@ -11,4 +11,5 @@ services:
     volumes:
       - /var/www/certbot/:/var/www/certbot/:rw
       - ~/certbot/conf/:/etc/letsencrypt/:rw
-    command: certonly --webroot --webroot-path=/var/www/certbot/ --email ${ADMIN_EMAIL} --agree-tos --no-eff-email --force-renewal -d ${DOMAIN} -d www.${DOMAIN}
+#todo(uncomit)    command: certonly --webroot --webroot-path=/var/www/certbot/ --email ${ADMIN_EMAIL} --agree-tos --no-eff-email --force-renewal -d ${DOMAIN} -d www.${DOMAIN}
+      command: echo "$(date) Run command renew SSL" >> /etc/letsencrypt/renew.log

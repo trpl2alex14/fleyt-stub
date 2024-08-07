@@ -21,6 +21,9 @@ server {
         location ~ /\.ht {
             deny all;
         }
+
+        error_log /var/log/nginx/$DOMAIN/error.log;
+        access_log /var/log/nginx/$DOMAIN/access.log;
 }
 
 

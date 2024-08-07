@@ -49,5 +49,7 @@ jobs:
             rm -rf ~/docker
             ln -s ~/${{ env.DEPLOY_PATH }}/${{ github.sha }}/docker ~/docker
             envsubst '$DOMAIN' < ~/docker/nginx/site.conf.example > ~/docker/nginx/${{ secrets.DOMAIN }}.conf
+            chmod +x ~/docker/renew-cert-ssl.sh
+            cp ~/docker/renew-cert-ssl.sh /etc/cron.monthly
             docker compose -f ~/docker/docker-compose.yml up -d --remove-orphans
 
