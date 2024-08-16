@@ -1,0 +1,248 @@
+@import "../mixins";
+
+.params {
+  margin-top: 150px;
+
+  @include _1279 {
+    margin-top: 100px;
+  }
+
+  @include _767 {
+    margin-top: 80px;
+  }
+
+  &__left {
+    @include _999 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    @include _767 {
+      display: block;
+    }
+  }
+
+
+  &__title {
+    @include _999 {
+      flex: 1 30%;
+    }
+
+    @include _767{
+      text-align: center;
+    }
+  }
+
+  &__content {
+    @include _999 {
+      flex: 2 50%;
+    }
+
+    @include _767 {
+      max-width: 80%;
+      min-width: 344px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__actions {
+    margin-top: 30px;
+    @include _999 {
+      display: flex;
+      gap: 50px;
+      flex: 1 100%;
+      justify-content: center;
+      margin-top: 0;
+    }
+
+    @include _767 {
+      display: flex;
+      max-width: 80%;
+      min-width: 344px;
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+      gap: 30px 70px;
+    }
+  }
+
+  &__action {
+    margin-bottom: 20px;
+    width: 260px;
+    justify-content: space-between;
+    @include _1279{
+      font-size: var(--font-size-text);
+      width: 200px;
+    }
+    @include _999 {
+      width: auto;
+    }
+
+    @include _767 {
+      width: 140px;
+      min-width: 0;
+      height: auto;
+      margin: 0;
+    }
+  }
+
+  &__models {
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    align-items: flex-end;
+    @include _999 {
+      max-width: 780px;
+      margin-left: auto;
+    }
+
+    @include _767 {
+      max-width: 80%;
+      margin: 0 auto;
+      min-width: 344px;
+    }
+
+    @include _resp(600px) {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__model {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    @include _1279 {
+      background-position-x: -80px !important;
+      padding-top: 30px;
+    }
+
+    @include _999 {
+      background-position-x: 80px !important;
+    }
+
+    @include _767 {
+      padding-top: 100px;
+      background-position-x: -60px !important;
+      background-position-y: bottom !important;
+    }
+
+    @include _resp(600px) {
+      padding-top: 310px;
+      background-position-x: -80px !important;
+      background-position-y: top !important;
+    }
+  }
+
+  &__model-info {
+    width: 290px;
+    padding: 30px;
+    background: var(--color-bg-light);
+    border-radius: 30px 0 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: auto;
+
+    @include _1279 {
+      padding: 20px;
+      width: 240px;
+    }
+
+    @include _999 {
+      padding: 30px;
+      width: 260px;
+    }
+
+    @include _767 {
+      padding: 20px;
+      width: 240px;
+      gap: 16px;
+    }
+
+    @include _resp(600px) {
+      width: 100%;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex-direction: row
+    }
+  }
+
+  &__param {
+    padding-left: 40px;
+
+    @include _1279 {
+      padding-left: 34px;
+    }
+
+    @include _767 {
+      padding-left: 30px;
+    }
+
+    @include _resp(600px) {
+      flex: 1 40%;
+    }
+
+    &--height {
+      background: url(../../assets/height-icon.svg) no-repeat center left;
+    }
+
+    &--power {
+      background: url(../../assets/power-icon.svg) no-repeat center left;
+    }
+
+    &--wall {
+      background: url(../../assets/wall-icon.svg) no-repeat center left;
+    }
+
+    &--floor {
+      background: url(../../assets/floor-icon.svg) no-repeat center left;
+    }
+  }
+
+  &__param-value {
+    font-size: var(--font-size-action);
+    font-weight: 700;
+
+    span {
+      font-size: var(--font-size-text);
+      color: var(--color-gray);
+    }
+  }
+
+  &__model-variant {
+    border-bottom: 2px dotted var(--color-secondary);
+    cursor: pointer;
+  }
+
+  &__model--300 {
+    background: url(../../assets/model300.jpg) no-repeat left center;
+    transition: .5s ease-out;
+  }
+
+  &__model--300:has(&__model-variant:hover) {
+    background: url(../../assets/model300-two.jpg) no-repeat left center;
+  }
+
+  &__model--500 {
+    background: url(../../assets/model500.jpg) no-repeat left center;
+    transition: .5s ease-out;
+  }
+
+  &__model--500:has(&__model-variant:hover) {
+    background: url(../../assets/model500-250w.jpg) no-repeat left center;
+  }
+
+  &__model--1500 {
+    background: url(../../assets/model1500.jpg) no-repeat left center;
+    height: 500px;
+    align-items: flex-start;
+    @include _resp(600px) {
+      padding-top: 500px;
+    }
+  }
+}

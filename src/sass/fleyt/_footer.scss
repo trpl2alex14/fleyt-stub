@@ -1,0 +1,73 @@
+.footer {
+  margin: 0;
+  padding: 100px 0 0;
+
+  &__top {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__description {
+    margin-top: 10px;
+    font-size: var(--font-size-text-big);
+  }
+
+  &__socials {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  &__youtube-button, &__vk-button, &__telegram-button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background: url(../assets/youtube-icon.svg) no-repeat;
+    background-size: cover;
+  }
+
+  &__youtube-button {
+    background: url(../assets/youtube-icon.svg) no-repeat;
+  }
+
+  &__vk-button {
+    background: url(../assets/vk-icon.svg) no-repeat;
+  }
+
+  &__telegram-button {
+    background: url(../assets/telegram-icon.svg) no-repeat;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__menu {
+    padding-right: 100px;
+  }
+
+  &__phone {
+    font-size: var(--font-size-h2);
+    margin-bottom: 30px;
+  }
+
+  &__email {
+    font-size: var(--font-size-action);
+    margin-bottom: 30px;
+  }
+
+  &__contact-description{
+    font-size: var(--font-size-sub_text);
+    color: var(--color-gray);
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    border-top: 1px solid var(--color-bg-light);
+  }
+}

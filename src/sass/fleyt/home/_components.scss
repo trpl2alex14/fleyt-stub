@@ -1,0 +1,299 @@
+@import "../mixins";
+
+.components {
+  margin-top: 150px;
+
+  @include _1279 {
+    margin-top: 100px;
+  }
+
+  @include _767 {
+    margin-top: 80px;
+  }
+
+  &__title {
+    max-width: 400px;
+    @include _999 {
+      max-width: 80%;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  &__wrapper {
+    margin-top: 30px;
+    display: flex;
+
+    @include _999 {
+      max-width: 850px;
+      margin: 50px auto 0;
+      gap: 20px;
+    }
+
+    @include _767 {
+      position: relative;
+      margin-bottom: 70px;
+    }
+  }
+
+  &__title-h3 {
+    font-size: var(--font-size-h3);
+    @include _767 {
+      font-size: var(--font-size-h4);
+    }
+  }
+
+  &__description {
+    margin-top: 10px;
+    max-width: 350px;
+    color: var(--color-gray);
+    font-weight: 300;
+  }
+
+  &__fleyt {
+    position: relative;
+    height: 795px;
+    width: 50%;
+    padding-top: 20px;
+    background: url(../../assets/comp_bg_left.jpg) no-repeat left bottom;
+
+    @include _1279 {
+      background-size: contain;
+      height: 640px;
+    }
+
+    @include _999 {
+      background-position-x: right;
+      background-size: auto 500px;
+      height: 600px;
+    }
+
+    @include _767 {
+      width: 100%;
+      background-size: 500px;
+      background-position: center;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 340px;
+      top: 65px;
+      width: 1px;
+      left: 130px;
+      z-index: 20;
+      border-left: 1px solid var(--color-secondary);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      top: 405px;
+      left: 128px;
+      z-index: 20;
+      border-radius: 5px;
+      background: var(--color-secondary);
+    }
+  }
+
+  &__image-fleyt {
+    position: absolute;
+    height: 324px;
+    width: 324px;
+    left: 10px;
+    bottom: 50px;
+    z-index: 10;
+    @include _767 {
+      left: -50px;
+    }
+  }
+
+  &__regulator {
+    position: relative;
+    height: 770px;
+    width: 50%;
+    padding: 700px 0 0 30px;
+    background: url(../../assets/comp_bg_right.jpg) no-repeat right top;
+
+    @include _1279 {
+      background-size: contain;
+      height: 600px;
+      padding-top: 550px;
+    }
+
+    @include _999 {
+      background-position-x: left;
+      background-size: auto 500px;
+      height: 600px;
+      padding-top: 510px;
+    }
+
+    @include _767 {
+      position: absolute;
+      background: no-repeat;
+      right: 0;
+      bottom: -10px;
+      min-width: 210px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 205px;
+      bottom: 40px;
+      width: 1px;
+      right: 275px;
+      z-index: 20;
+      border-left: 1px solid var(--color-secondary);
+      @include _999 {
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        height: 160px;
+        bottom: 90px;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      bottom: 245px;
+      right: 274px;
+      z-index: 20;
+      border-radius: 5px;
+      background: var(--color-secondary);
+      @include _999 {
+        right: 0;
+        left: -2px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__image-termo {
+    position: absolute;
+    height: 156px;
+    width: 163px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    @include _767 {
+      height: 130px;
+      width: 136px;
+      bottom: 110px;
+    }
+  }
+
+  &__boiler {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include _1279 {
+      justify-content: flex-end
+    }
+    @include _999 {
+      display: block;
+    }
+
+    @include _767 {
+      margin-top: 0;
+      background: var(--color-bg-light);
+      padding-top: 30px;
+      padding-bottom: 80px;
+    }
+  }
+
+  &__boiler-title {
+    flex: 1;
+    @include _999 {
+      text-align: center;
+    }
+  }
+
+  &__boiler-image-wrapper {
+    position: relative;
+    max-width: 780px;
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    cursor: pointer;
+    @include _999 {
+      max-width: 728px;
+      gap: initial;
+      margin: 0 auto;
+    }
+    @include _767 {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      background: var(--color-bg-light);
+      padding: 4px 0;
+    }
+  }
+
+  &__boiler-image {
+    @include _767 {
+      max-width: 170px;
+    }
+  }
+
+  &__boiler-minus {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 380px;
+    padding: 30px;
+    background: var(--color-bg-light);
+    opacity: 0;
+    transition: opacity .3s ease-in;
+
+    @include _767 {
+      position: relative;
+      min-width: 344px;
+      width: 344px;
+      max-width: 344px;
+      flex: 1;
+      opacity: 1;
+      height: 100%;
+    }
+  }
+
+  &__boiler-image-wrapper:hover &__boiler-minus {
+    opacity: 1;
+  }
+
+  &__boiler-minus-list {
+    list-style-type: none;
+    padding-left: 20px;
+    li {
+      margin: 10px 0;
+      position: relative;
+      font-size: var(--font-size-text);
+      font-weight: 300;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        left: -15px;
+        width: 6px;
+        height: 6px;
+        border-radius: 5px;
+        background: var(--color-secondary);
+      }
+    }
+  }
+}

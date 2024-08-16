@@ -1,5 +1,4 @@
-@import '~@fontsource/sofia-sans/index.css';
-@import '~@fontsource/sofia-sans/300.css';
+@import '~@fontsource-variable/sofia-sans';
 @import "variables";
 
 html {
@@ -10,7 +9,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Sofia Sans", sans-serif;
+  font-family: "Sofia Sans Variable", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;

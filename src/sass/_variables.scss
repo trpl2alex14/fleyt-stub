@@ -1,19 +1,82 @@
 :root {
   --color-bg: #fff;
+  --color-bg-light: #eee;
+  --color-bg-darck: #313131;
   --color-text: #202020;
+  --color-text-light: #ccc;
   --color-primary: #E70111;
   --color-secondary: #FF8100;
-  --color-bg-light: #ccc;
+  --color-gray: #687377;
 
   --font-size-default: 1rem;
+  --line-height-default: 24px;
+
   --font-size-h1: 70px;
+  --font-size-h2: 40px;
   --font-size-h3: 30px;
+  --font-size-h4: 24px;
   --font-size-action: 20px;
+  --font-size-text-big: 20px;
   --font-size-text: 16px;
   --font-size-sub_text: 14px;
+  --font-size-wow: 60px;
+
+  --font-phone-header: 24px;
 
   --font-weight-h1: 600;
 
   --font-size-h1-sm: 26px;
   --font-weight-h1-sm: 400;
+}
+
+.box-shadow {
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.2);
+}
+
+.box-shadow-xl {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.2);
+}
+
+@media only screen and (max-width: 1279px) {
+  :root {
+    --font-size-h1: 48px;
+    --font-size-h2: 35px;
+    --font-size-h3: 24px;
+    --font-size-h4: 20px;
+    --font-size-action: 20px;
+    --font-size-text-big: 16px;
+    --font-size-text: 16px;
+    --font-size-sub_text: 14px;
+    --font-size-wow: 35px;
+  }
+}
+
+@media only screen and (max-width: 999px) {
+  :root {
+    --font-size-h1: 40px;
+    --font-size-h2: 26px;
+    --font-size-h3: 24px;
+    --font-size-h4: 20px;
+    --font-size-action: 16px;
+    --font-size-text-big: 16px;
+    --font-size-text: 14px;
+    --font-size-sub_text: 14px;
+    --font-size-wow: 35px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  :root {
+    --font-size-h1: 30px;
+    --font-size-h2: 24px;
+    --font-size-h3: 24px;
+    --font-size-h4: 20px;
+    --font-size-action: 16px;
+    --font-size-text-big: 14px;
+    --font-size-text: 12px;
+    --font-size-sub_text: 12px;
+    --font-size-wow: 26px;
+
+    --font-phone-header: 16px;
+  }
 }

@@ -1,0 +1,75 @@
+@import "mixins";
+
+.logo {
+  text-align: center;
+  padding: 12px;
+
+  &--box{
+    border-radius: 20px 0 20px 0;
+    background: var(--color-bg);
+    @include box-shadow;
+
+    @include _1279 {
+      border-radius: 10px 0 10px 0;
+    }
+  }
+
+  &--content {
+    position: absolute;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    transform: rotate(10deg);
+    z-index: 10;
+
+    @include _999 {
+      width: 75px;
+      height: 75px;
+      padding: 9px;
+    }
+
+    @include _767 {
+      width: 50px;
+      height: 50px;
+      padding: 6px;
+    }
+  }
+
+  &--content-left {
+    @extend .logo--content;
+    position: absolute;
+    left: 30%;
+    right: auto;
+    bottom: -50px;
+    @include _999 {
+      bottom: -37px;
+      left: 20%;
+    }
+
+    @include _767 {
+      bottom: -25px;
+      left: 20%;
+    }
+  }
+
+  &--content-right {
+    @extend .logo--content;
+    position: absolute;
+    right: 30%;
+    left: auto;
+    bottom: -50px;
+    @include _999 {
+      bottom: -37px;
+      right: 20%;
+    }
+
+    @include _767 {
+      bottom: -25px;
+      right: 20%;
+    }
+  }
+
+  &__img {
+    height: 100%;
+  }
+}

@@ -1,0 +1,203 @@
+@import "../mixins";
+
+.usages {
+  margin-top: 150px;
+  width: 100%;
+  padding: 150px 0;
+  background: url(../../assets/ussage_bg.jpg) repeat;
+  position: relative;
+
+  @include _1279 {
+    margin-top: 100px;
+    padding: 100px 0;
+  }
+
+  @include _767 {
+    margin-top: 80px;
+    padding: 80px 0;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    border-radius: 50px 0 50px 0;
+
+    @include _1279 {
+      gap: 20px;
+    }
+
+    @include _999 {
+      flex-direction: column;
+    }
+
+    @include _767{
+      border-radius: 0;
+    }
+  }
+
+  &__master, &__slave {
+    background-color: var(--color-bg-light);
+    transition: .3s ease-out;
+    position: relative;
+
+    &:hover {
+      box-shadow: 0 0 20px rgba(238, 138, 21, .3);
+    }
+  }
+
+  &__master {
+    width: 100%;
+    padding-top: 350px;
+    background-size: 100%;
+    background: url(../../assets/usage_master.jpg) no-repeat top center;
+    background-size: 100%;
+    border-radius: 50px 0 0 0;
+    @include _1279 {
+      background: url(../../assets/usage_master1279.jpg) no-repeat top center;
+    }
+    @include _999 {
+      height: 320px;
+      padding: 0;
+      position: relative;
+      background-position-x: right;
+      border-radius: 50px 0 0;
+      overflow: hidden;
+    }
+    @include _767 {
+      height: auto;
+      background: none;
+    }
+  }
+
+  &__slave {
+    width: calc(var(--grid-width) * 4 + var(--grid-gap) * 3);
+    min-width: calc(var(--grid-width) * 4 + var(--grid-gap) * 3);
+    padding-bottom: 440px;
+    background: url(../../assets/usage_slave.jpg) no-repeat bottom center;
+    background-size: 100%;
+    border-radius: 0 0 50px 0;
+    @include _1279 {
+      padding-bottom: 413px;
+      background: url(../../assets/usage_slave1279.jpg) no-repeat bottom center;
+    }
+
+    @include _999 {
+      width: 100%;
+      background-position-x: left;
+      border-radius: 0  0 50px 0;
+      overflow: hidden;
+    }
+
+    @include _resp(580px) {
+      height: auto;
+      background: none;
+      padding: 0;
+    }
+  }
+
+  &__wow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 45%;
+    @include _999 {
+      left: 40px;
+      max-width: 45%;
+      z-index: 10;
+      text-align: left;
+      bottom: 323px;
+      color: var(--color-bg);
+    }
+
+    @include _767 {
+      position: relative;
+      text-align: center;
+      bottom: 0;
+      color: var(--color-text);
+      left: 0;
+      width: 100%;
+      max-width: 100%;
+      font-size: var(--font-size-h3);
+    }
+  }
+
+  &__wrapper {
+    padding: 40px;
+    background-color: var(--color-bg);
+
+    @include _999 {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 300px;
+      right: 0;
+      padding: 30px;
+    }
+
+    &--master {
+      display: flex;
+      gap: 30px;
+
+      @include _999 {
+        display: block;
+        position: absolute;
+        width: 300px;
+        left: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+      @include _767 {
+        width: auto;
+        position: relative;
+      }
+
+      & div:first-child {
+        white-space: nowrap;
+        @include _767 {
+          text-align: right;
+        }
+      }
+    }
+
+    &--slave {
+      @include _resp(580px) {
+        width: auto;
+        position: relative;
+        left: 0;
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: var(--font-size-h4);
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    font-size: var(--font-size-text-big);
+
+  }
+
+  &__mobile-image {
+    display: none;
+  }
+
+  &__master &__mobile-image {
+    @include _767 {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__slave &__mobile-image {
+    @include _resp(580px) {
+      display: block;
+      width: 100%;
+    }
+  }
+}

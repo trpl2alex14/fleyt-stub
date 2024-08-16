@@ -1,0 +1,22 @@
+.menu {
+  display: flex;
+  gap: 16px 30px;
+  list-style-type: none;
+  align-items: center;
+  font-size: var(--font-size-action);
+
+  &--secondary {
+    gap: 10px 20px;
+    font-size: var(--font-size-sub_text);
+    height: 40px;
+  }
+
+  &--row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  &__item {
+
+  }
+}

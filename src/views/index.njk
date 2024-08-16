@@ -1,0 +1,23 @@
+{% extends "layouts/template.njk" %}
+
+{% block title %}&#171;Флэйт&#187; - электрические радиаторы системы отопления{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="@styles/fleyt/home/index.scss">
+{% endblock %}
+
+{% block content %}
+
+  {% include "blocks/intro.html" %}
+  {% include "blocks/about.html" %}
+  {% include "blocks/usages.html" %}
+  {% include "blocks/construction.html" %}
+  {% include "blocks/params.html" %}
+  {% include "blocks/gallery.html" %}
+  {% include "blocks/colors.html" %}
+  {% include "blocks/details.html" %}
+  {% include "blocks/effect.html" %}
+  {% include "blocks/components.html" %}
+  {% include "blocks/install.html" %}
+
+{% endblock %}

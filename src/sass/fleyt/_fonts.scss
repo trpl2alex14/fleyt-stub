@@ -1,0 +1,45 @@
+@import "mixins";
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+p {
+  margin-bottom: .6em;
+  line-height: 1.3em;
+  font-weight: 300;
+
+  @include _767 {
+    margin-bottom: .8em;
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+h1 {
+  font-family: 'Sofia Sans Variable', sans-serif;
+}
+
+.logo-font {
+  font-family: 'Sofia Sans Variable', sans-serif;
+}
+
+
+.text {
+  &--wow {
+    font-size: var(--font-size-wow);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  &--bg-black {
+    color: var(--color-bg);
+
+    strong {
+      font-weight: 500;
+    }
+  }
+}

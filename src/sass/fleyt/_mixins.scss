@@ -1,0 +1,27 @@
+@mixin _1279 {
+  @media only screen and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin _999 {
+  @media only screen and (max-width: 999px) {
+    @content;
+  }
+}
+
+@mixin _767 {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin _resp($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin box-shadow {
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.2);
+}

@@ -1,0 +1,35 @@
+@import "mixins";
+
+.list {
+  list-style-type: none;
+
+  &--doted {
+    li {
+      margin: 1em 0;
+      position: relative;
+      padding-left: 20px;
+
+      @include _999 {
+        padding-left: 16px;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 5px;
+        background: var(--color-secondary);
+        @include _999 {
+          width: 6px;
+          height: 6px;
+        }
+      }
+    }
+  }
+}

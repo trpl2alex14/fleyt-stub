@@ -1,0 +1,167 @@
+@import "../mixins";
+
+.gallery {
+  max-width: 2020px;
+  margin: 200px auto 0;
+  position: relative;
+
+  @include _1279 {
+    margin-top: 150px;
+  }
+
+  &__wrapper {
+    height: 700px;
+    background: #E1E1E1;
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    @include _1279 {
+      height: 500px;
+    }
+
+    @include _999 {
+      height: auto;
+      padding-bottom: 400px;
+    }
+
+    @include _767 {
+      padding: 0;
+      background: none;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    @include _999 {
+      flex-direction: row;
+      position: relative;
+      border-bottom: 5px solid #fff;
+    }
+    @include _767 {
+      position: relative;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    @include _999 {
+      height: auto;
+      width: calc(100% - 290px);
+      left: 0;
+      margin-left: auto;
+      margin-right: 0;
+    }
+    @include _767 {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    width: 800px;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    @include _1279 {
+      width: 355px;
+      height: 270px;
+    }
+    @include _999 {
+      height: 290px;
+      width: 50%;
+    }
+    @include _767 {
+      height: auto;
+      flex: 1;
+      min-width: 250px;
+      max-width: 100%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    @include _1279 {
+      height: 100%;
+      left: auto;
+      right: 0;
+    }
+
+    @include _999 {
+      height: auto;
+      width: 100%;
+    }
+    @include _767 {
+      position: relative;
+      height: 100%;
+    }
+
+    &--border {
+      border-right: 10px solid var(--color-bg);
+      border-bottom: 10px solid var(--color-bg);
+      @include _1279 {
+        border-right: 5px solid var(--color-bg);
+        border-bottom: 5px solid var(--color-bg);
+      }
+      @include _999 {
+        border-bottom: none;
+      }
+      @include _resp(500px) {
+        border-right: none;
+        border-bottom: 5px solid var(--color-bg);
+      }
+    }
+  }
+
+  &__front {
+    position: absolute;
+    top: -70px;
+    left: 32%;
+    width: 560px;
+    border: 10px solid var(--color-bg);
+    border-radius: 30px 0 30px 0;
+    transition: 1s ease-out;
+    z-index: 3;
+    @include _1279 {
+      top: -30px;
+      left: 22%;
+      width: 400px;
+      border: 5px solid var(--color-bg);
+    }
+
+    @include _999 {
+      left: 0;
+      bottom: 0;
+      top: auto;
+      width: 350px;
+    }
+    @include _767 {
+      left: 0;
+      bottom: 350px;
+      width: 200px;
+    }
+  }
+
+  &--view &__front {
+    top: 80px;
+    @include _1279 {
+      top: 20px;
+    }
+    @include _999 {
+      top: auto;
+      bottom: -20px;
+    }
+  }
+}

@@ -1,0 +1,194 @@
+@import "../mixins";
+
+.intro {
+  background: url(../../assets/intro_bg.jpg) no-repeat center;
+  height: 750px;
+  margin: 120px 0 0;
+  display: block;
+  padding: 50px 0;
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+
+  @include _1279 {
+    margin-top: 120px;
+    height: 480px;
+    background-size: auto 470px;
+  }
+
+  @include _999 {
+    margin-top: 60px;
+    height: 450px;
+    background: url(../../assets/intro_bg-1279.jpg) no-repeat center;
+  }
+
+  @include _767 {
+    margin-top: 50px;
+    height: auto;
+    background-position: top;
+    background-position-x: right;
+  }
+
+  &__image {
+    position: absolute;
+    top: -30px;
+    left: 45%;
+    width: 890px;
+    height: 890px;
+    z-index: 10;
+    pointer-events: none;
+    transition: .5s ease-in-out;
+
+    @include _1279 {
+      width: 580px;
+      height: 580px;
+      top: -30px;
+      left: 50%;
+    }
+
+    @include _999 {
+      width: 550px;
+      height: 550px;
+      right: -65px;
+      left: auto;
+    }
+
+    @include _767 {
+      width: 380px;
+      height: 380px;
+      top: 110px;
+      right: -30px;
+    }
+
+    &--parallax {
+      top: -20px;
+      transform: scale(.90);
+    }
+  }
+
+  &__title {
+    margin-top: 80px;
+    max-width: 600px;
+
+    @include _1279 {
+      margin-left: 50px;
+      margin-top: 0;
+      max-width: 400px;
+    }
+
+    @include _999 {
+      margin-left: 50px;
+      margin-top: 0;
+      max-width: 350px;
+    }
+
+    @include _767 {
+      margin-left: 0;
+      max-width: 250px;
+    }
+  }
+
+  &__info {
+    margin-top: 80px;
+    max-width: 450px;
+    font-size: var(--font-size-action);
+    font-weight: 400;
+
+    @include _1279 {
+      margin-left: 50px;
+      margin-top: 20px;
+      max-width: 350px;
+      font-size: var(--font-size-text);
+    }
+
+    @include _999 {
+      margin-left: 50px;
+      max-width: 350px;
+      font-size: var(--font-size-action);
+    }
+
+    @include _767 {
+      margin-left: 0;
+      margin-top: 40px;
+      max-width: 270px;
+    }
+  }
+
+  &__actions {
+    margin-top: 40px;
+    max-width: 610px;
+    display: flex;
+    gap: 30px;
+
+    @include _1279 {
+      margin-left: 50px;
+      margin-top: 50px;
+      max-width: 500px;
+      font-size: var(--font-size-text);
+      gap: 20px;
+    }
+
+    @include _999 {
+      margin-left: 50px;
+      max-width: 260px;
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+
+    @include _767 {
+      margin-left: 8px;
+      margin-right: 8px;
+      width: auto;
+      margin-top: 210px;
+      max-width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__button-buy, &__button-calc {
+    height: 60px;
+
+    @include _1279 {
+      height: 50px;
+    }
+
+    @include _999 {
+      height: 40px;
+    }
+  }
+
+  &__button-buy {
+    width: 100%;
+    font-size: var(--font-size-h4);
+    font-weight: 300;
+
+    @include _1279 {
+      font-size: var(--font-size-action);
+    }
+
+    @include _767 {
+      order: 2;
+      width: 344px;
+      max-width: 344px;
+    }
+  }
+
+  &__button-calc {
+    white-space: nowrap;
+    @include _1279 {
+      font-size: var(--font-size-text);
+    }
+
+    @include _999 {
+      height: 1em;
+    }
+
+    @include _767 {
+      order: 1;
+      font-size: var(--font-size-action);
+    }
+  }
+}

@@ -1,0 +1,243 @@
+@import "../mixins";
+
+.about {
+  position: relative;
+  margin-top: 150px;
+
+  @include _1279 {
+    margin-top: 100px;
+  }
+
+  @include _999 {
+    flex-direction: initial;
+    gap: 20px;
+  }
+
+  @include _767 {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  &--sticky {
+    align-items: flex-start;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include _767 {
+      text-align: center;
+    }
+  }
+
+  &__left{
+    @include _1279 {
+      flex: 1 50%;
+    }
+
+    @include _999 {
+      width: 360px !important;
+      min-width: auto !important;
+    }
+
+    @include _767 {
+      width: 100% !important;
+      max-width: 400px !important;
+      min-width: 344px !important;
+      max-height: 300px;
+    }
+  }
+
+  &__content {
+    max-width: 594px;
+    margin-top: -8px;
+
+    @include _1279 {
+      flex: 1 50%;
+      margin-top: -5px;
+    }
+
+    p {
+      font-size: var(--font-size-text-big);
+      @include _1279 {
+        font-size: var(--font-size-text);
+      }
+    }
+  }
+
+  &__video-preview {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 30px 0 30px 0;
+    height: 300px;
+    align-items: flex-end;
+    background: url(../../assets/about-preview.jpg) no-repeat right bottom;
+    position: relative;
+
+    @include _999 {
+      height: auto;
+      max-height: 300px;
+    }
+
+    &:before {
+      display: block;
+      position: absolute;
+      content: "";
+      right: 10px;
+      top: 10px;
+      height: 30px;
+      width: 30px;
+      background: url(../../assets/repeat-icon.svg);
+      background-size: contain;
+      opacity: 0;
+      transition: opacity .3s ease-out;
+    }
+
+    &:hover:before {
+      opacity: 1;
+    }
+  }
+
+  &__video {
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__video-preview--play &__video {
+    opacity: 1;
+  }
+
+  &__effects {
+    position: sticky;
+    top: 100px;
+    @include _999 {
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    @include _767 {
+      flex-direction: column;
+      gap: 0;
+      margin-top: 0;
+    }
+  }
+
+  &__wow-text {
+    margin-bottom: 20px;
+    text-align: right;
+    @include _999 {
+      font-size: var(--font-size-h2);
+    }
+    @include _767 {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__pluses {
+    @include _999 {
+      flex-direction: column;
+    }
+  }
+
+  &__pluses-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    @include _999 {
+      width: 100% !important;
+      flex-direction: row;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    @include _767 {
+      min-width: 0 !important;
+    }
+  }
+
+  &__plus {
+    position: relative;
+    flex: 1;
+
+    @include _999 {
+      flex: 1 1 225px;
+      max-width: 35%;
+      min-width: 225px;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--color-bg-light);
+      @include _999 {
+        top: 29px;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 48px;
+      left: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+      background: var(--color-bg-light);
+      @include _999 {
+        display: none;
+        top: 27px;
+      }
+    }
+  }
+
+  &__plus-title {
+    @include _999 {
+      font-size: var(--font-size-text-big);
+    }
+
+    @include _767 {
+      text-align: center;
+    }
+  }
+
+  &__plus-list {
+    margin-top: 30px;
+    margin-left: 30px;
+
+    @include _999 {
+      margin-top: 20px;
+      margin-left: 0;
+    }
+
+    @include _767 {
+      margin-top: 20px;
+      margin-left: 0;
+      text-align: center;
+      padding-right: 20px;
+    }
+
+    li {
+      margin: 20px 0;
+      font-size: var(--font-size-text-big);
+      font-weight: 300;
+      @include _767 {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

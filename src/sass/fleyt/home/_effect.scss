@@ -1,0 +1,233 @@
+@import "../mixins";
+
+.effect {
+  margin: 0;
+  padding: 150px 0 200px;
+  background: var(--color-bg-darck);
+  color: var(--color-bg);
+
+  @include _1279 {
+    padding: 100px 0 150px;
+  }
+
+  @include _999 {
+    padding: 100px 0 100px;
+  }
+
+  @include _767 {
+    padding: 80px 0 30px;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__title {
+    max-width: 50%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: -70px;
+    @include _999 {
+      margin-top: -25px;
+      margin-bottom: 130px;
+    }
+
+    @include _767 {
+      flex-direction: column;
+      margin-bottom: 160px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    flex: 1 50%;
+    padding-right: 15%;
+    padding-left: 0;
+    margin-top: 170px;
+
+    @include _767 {
+      width: 100%;
+      padding: 0;
+      margin-top: 50px;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 45px;
+      height: 0;
+      border-top: 1px solid var(--color-secondary);
+      z-index: 10;
+      @include _767 {
+        right: 12%;
+        top: 32px;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: auto;
+      right: 0;
+      top: 43px;
+      height: 5px;
+      width: 5px;
+      border-radius: 5px;
+      background: var(--color-secondary);
+      z-index: 10;
+      @include _767 {
+        top: 30px;
+        right: 12%;
+      }
+    }
+
+    &:nth-child(2n) {
+      padding-right: 0;
+      padding-left: 15%;
+      margin-top: 0;
+
+      @include _767 {
+        width: 100%;
+        padding: 0;
+        margin-top: 50px;
+      }
+
+      &:before {
+        left: auto;
+        right: 0;
+        width: 90%;
+        @include _767 {
+          left: 0;
+          top: 32px;
+          right: 12%;
+          width: auto;
+        }
+      }
+
+      &:after {
+        left: 10%;
+        right: 0;
+        @include _767 {
+          left: auto;
+          right: 12%;
+          top: 30px;
+        }
+      }
+    }
+  }
+
+  &__item-title {
+    font-size: var(--font-size-text-big);
+    @include _1279 {
+      margin-top: 6px;
+    }
+  }
+
+  &__item-text {
+    margin-top: 40px;
+    font-size: var(--font-size-text);
+    font-weight: 400;
+    @include _767 {
+      margin-top: 20px;
+      max-width: 60%;
+      min-width: 235px;
+    }
+  }
+
+
+  &__anim-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 810px;
+    height: 810px;
+    @include _999 {
+      left: -40px;
+    }
+    @include _767 {
+      left: auto;
+      right: -295px;
+      top: 60px;
+    }
+  }
+
+  .effect__anim {
+    position: absolute;
+    width: 810px;
+    height: 810px;
+    transition: 1s ease-in;
+    pointer-events: none;
+
+    &--tube {
+      background: url(../../assets/exploge_tube.png) no-repeat;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 5;
+      opacity: 1;
+    }
+
+    &--cap-t {
+      background: url(../../assets/exploge_cap_t.png) no-repeat;
+      top: 23px;
+      z-index: 4;
+    }
+
+    &--cap-b {
+      background: url(../../assets/exploge_cap_b.png) no-repeat center bottom;
+      z-index: 4;
+      top: 0;
+    }
+
+    &--bracket {
+      background: url(../../assets/exploge_bracket.png) no-repeat;
+      z-index: 4;
+      left: 36px;
+    }
+
+    &--ten {
+      background: url(../../assets/exploge_ten.png) no-repeat;
+      top: -4px;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      z-index: 4;
+    }
+  }
+
+  &__anim-wrapper--view  .effect__anim {
+    &--tube {
+      opacity: .5;
+    }
+
+    &--cap-t {
+      top: -10px;
+    }
+
+    &--cap-b {
+      top: 30px;
+    }
+
+    &--bracket {
+      left: 90px;
+      @include _999 {
+        left: 70px;
+      }
+    }
+
+    &--ten {
+      opacity: 1;
+    }
+  }
+
+}

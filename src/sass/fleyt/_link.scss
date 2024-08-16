@@ -1,0 +1,15 @@
+.link {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color .2s ease;
+
+  &:not(&--phone) {
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  &--email {
+    color: var(--color-primary);
+  }
+}

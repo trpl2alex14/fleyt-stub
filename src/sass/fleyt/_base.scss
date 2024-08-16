@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --primary-action: var(--color-primary);
+  --secondary-action: var(--color-secondary);
+
+  --apply-color: var(--color-primary);
+  --bg-color: var(--color-bg);
+
+  --secondary-box: var(--color-bg-light);
+  --text-color: var(--color-text);
+  --text-secondary-color: var(--color-text-light);
+  --font-family: 'Roboto', 'Arial', 'Helvetica', 'Nimbus Sans L', serif;
+  --font-size-base: var(--font-size-text);
+  --line-height-base: var(--line-height-default);
+
+  --header-meny-height: 90px;
+
+  --step: 8px;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-text);
+}

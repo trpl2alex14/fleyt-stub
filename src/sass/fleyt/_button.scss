@@ -1,0 +1,61 @@
+@import "mixins";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: var(--font-size-action);
+  cursor: pointer;
+
+  transition:  .3s ease-out;
+
+  &:not(&--icon, &--secondary) {
+    background: var(--color-primary);
+    color: var(--color-bg);
+    padding: 0 50px;
+    border-radius: 15px 0 15px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
+    &:hover {
+      background: var(--color-secondary);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    }
+  }
+
+  &--icon {
+
+  }
+
+  &--secondary {
+    position: relative;
+    padding: 0 10px 0 0;
+    background: none;
+    color: var(--color-text);
+    justify-content: flex-start;
+    gap: 5px;
+
+    &:after {
+      display: inline-block;
+      content: "";
+      margin-top: 2px;
+      width: 6px;
+      height: 6px;
+      border-top: 2px solid var(--color-primary);
+      border-right: 2px solid var(--color-primary);
+      rotate: 45deg;
+      @include _999 {
+        margin-top: 1px;
+      }
+    }
+
+    &:hover:after {
+      border-color: var(--color-secondary);
+    }
+
+    &:hover {
+      background: none;
+      color: var(--color-secondary);
+    }
+  }
+}

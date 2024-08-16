@@ -1,0 +1,237 @@
+@import "../mixins";
+
+.colors {
+  margin-top: 200px;
+
+  @include _1279{
+    margin-top: 150px;
+  }
+
+  @include _999{
+    margin-top: 100px;
+    gap: 20px;
+  }
+
+  @include _767 {
+    margin-top: 80px;
+    max-width: 80%;
+    min-width: 344px;
+  }
+
+  &__title{
+    @include _767 {
+      text-align: center;
+    }
+  }
+
+  &__preview {
+    position: relative;
+    width: 490px;
+    height: 614px;
+    margin-bottom: 21px;
+    border-radius: 50px 0 50px 0;
+    background: url(../../assets/c_red.jpg) no-repeat center;
+    transition: 1s ease-in;
+    @include _1279{
+      width: 400px;
+    }
+    @include _999 {
+      width: 100%;
+      height: 500px;
+      background-size: cover !important;
+    }
+  }
+
+  &__preview.red {
+    background: url(../../assets/c_red.jpg) no-repeat center;
+  }
+
+  &__preview.white {
+    background: url(../../assets/c_white.jpg) no-repeat center;
+  }
+
+  &__preview.black {
+    background: url(../../assets/c_black.jpg) no-repeat center;
+  }
+
+  &__preview.other {
+    background: url(../../assets/c_other.jpg) no-repeat center;
+  }
+
+  &__variants {
+    position: absolute;
+    left: 50px;
+    bottom: -20px;
+    display: flex;
+    gap: 5px;
+  }
+
+  &__color {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg);
+    cursor: pointer;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      border: 1px solid var(--color-text);
+      transition: .3s ease-in;
+    }
+
+    &--white {
+      &:before {
+        background: #fff;
+      }
+
+      .white &:before {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &--red {
+      &:before {
+        background: #D23715;
+      }
+
+      .red &:before {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &--black {
+      &:before {
+        background: #000;
+      }
+
+      .black &:before {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &--other {
+      &:before {
+        background: #71DCE3;
+      }
+
+      .other &:before {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+
+  &__content {
+    margin-top: -8px;
+    @include _1279 {
+      margin-top: -6px;
+    }
+    @include _999 {
+      margin-top: -4px;
+    }
+    @include _767 {
+      order: -1;
+    }
+  }
+
+  &__details {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include _999 {
+      margin-top: 30px;
+    }
+    @include _767 {
+      justify-content: space-around;
+    }
+  }
+
+  &__details-col {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    @include _999 {
+      margin-bottom: 30px;
+      gap: 30px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @include _767 {
+      flex-direction: column;
+    }
+  }
+
+  &__item-title {
+    font-size: var(--font-size-text-big);
+  }
+
+  &__item-images {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    @include _1279 {
+      gap: 6px;
+    }
+  }
+
+  &__image {
+    border-radius: 15px 0 15px 0;
+    width: 100px;
+    height: 150px;
+
+    @include _999 {
+      width: 70px;
+      height: 100px;
+    }
+    &--ral {
+      width: 187px;
+      @include _999 {
+        width: round(187px * .7);
+        margin-top: -20px;
+      }
+    }
+  }
+
+  &__ral {
+    border-radius: 15px 0 15px 0;
+    width: 100px;
+    height: 150px;
+    padding: 10px;
+    @include _999 {
+      width: 70px;
+      height: 100px;
+    }
+
+    &--9003 {
+      border: 1px solid var(--color-text);
+      background: #fff;
+    }
+
+    &--9005 {
+      background: #000;
+      color: #fff;
+    }
+
+    &--7024 {
+      background: #777;
+      color: #fff;
+    }
+  }
+
+  &__ral-label {
+    font-weight: 700;
+  }
+}
