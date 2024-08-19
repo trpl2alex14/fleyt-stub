@@ -63,6 +63,9 @@
     &--parallax {
       top: -20px;
       transform: scale(.90);
+      @include _767 {
+        top: 110px;
+      }
     }
   }
 
@@ -126,6 +129,7 @@
       max-width: 500px;
       font-size: var(--font-size-text);
       gap: 20px;
+      padding-bottom: 15px;
     }
 
     @include _999 {

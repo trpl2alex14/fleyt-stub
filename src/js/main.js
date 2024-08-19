@@ -8,6 +8,7 @@ window.playIntro = function (el) {
 }
 
 window.selectColor = function (className, el) {
+  console.log('select');
   const root = document.getElementById(el);
   if(root === undefined) {
     return;
@@ -18,6 +19,27 @@ window.selectColor = function (className, el) {
   root.classList.remove('white');
   root.classList.remove('other');
   root.classList.add(className);
+
+  event.stopPropagation();
+}
+
+window.setColor = 2 ;
+window.nextColor = function (el) {
+  console.log('next');
+  const root = document.getElementById(el);
+  if(root === undefined) {
+    return;
+  }
+
+  const colorsList = ['white', 'black', 'red', 'other'];
+  window.setColor ++ ;
+  window.setColor = window.setColor % 4;
+
+  root.classList.remove('red');
+  root.classList.remove('black');
+  root.classList.remove('white');
+  root.classList.remove('other');
+  root.classList.add(colorsList[window.setColor]);
 }
 
 window.openMenu = function () {
@@ -74,7 +96,7 @@ function scrollFunction() {
 
   actionEl = document.getElementById("effect-animation");
   rect = actionEl.getBoundingClientRect();
-  if(window.outerHeight / 2 - actionEl.clientHeight/2 + 50 > rect.top) {
+  if(window.outerHeight / 2 - actionEl.clientHeight/2 + 150 > rect.top) {
     actionEl.classList.add("effect__anim-wrapper--view");
   }else {
     actionEl.classList.remove("effect__anim-wrapper--view");

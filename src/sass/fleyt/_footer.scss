@@ -1,11 +1,36 @@
+@import "mixins";
+
 .footer {
   margin: 0;
   padding: 100px 0 0;
+
+  @include _999 {
+    padding-top: 80px;
+  }
+
+  @include _767 {
+    padding-top: 50px;
+  }
 
   &__top {
     margin-bottom: 100px;
     display: flex;
     justify-content: space-between;
+    @include _999 {
+      margin-bottom: 80px;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    @include _767 {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__about {
+    @include _999 {
+      text-align: center;
+    }
   }
 
   &__description {
@@ -17,15 +42,32 @@
     display: flex;
     gap: 20px;
     margin-top: 20px;
+    @include _999 {
+      display: none;
+    }
+
+    &--contacts {
+      display: none;
+      @include _999 {
+        display: flex;
+      }
+      @include _resp(520px) {
+        justify-content: center
+      }
+    }
   }
 
   &__youtube-button, &__vk-button, &__telegram-button {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     text-align: center;
     background: url(../assets/youtube-icon.svg) no-repeat;
-    background-size: cover;
+    background-size: cover !important;
+    @include _999 {
+      width: 35px;
+      height: 35px;
+    }
   }
 
   &__youtube-button {
@@ -42,10 +84,20 @@
 
   &__content {
     display: flex;
+    gap: 30px;
   }
 
   &__menu {
     padding-right: 100px;
+    @include _resp(520px) {
+      display: none;
+    }
+  }
+
+  &__contacts {
+    @include _resp(520px) {
+      text-align: center;
+    }
   }
 
   &__phone {
@@ -67,7 +119,36 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 30px;
     height: 56px;
     border-top: 1px solid var(--color-bg-light);
+
+    @include _767 {
+      gap: 20px;
+      height: auto;
+      flex-direction: column-reverse;
+      padding: 20px 0;
+    }
+  }
+
+  &__privacy-menu {
+    @include _999 {
+      text-align: center;
+    }
+
+    @include _767 {
+      flex-wrap: wrap;
+      gap: 30px;
+      height: auto;
+      justify-content: center;
+
+      > * {
+        display: none;
+      }
+
+      > *:nth-child(1), > *:nth-child(2) {
+        display: block;
+      }
+    }
   }
 }

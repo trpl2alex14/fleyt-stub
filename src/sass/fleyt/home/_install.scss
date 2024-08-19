@@ -6,9 +6,14 @@
   background: var(--color-bg-light);
   position: relative;
 
+  @include _999 {
+    padding: 80px 0 100px;
+  }
+
   @include _767 {
     margin: 0;
     background: #e7e7e7;
+    padding: 50px 0 100px;
   }
 
   &__container {
@@ -36,9 +41,20 @@
       max-width: 100%;
       flex: 1;
       margin-top: 0;
+      padding: 0 30px;
 
       display: grid;
       grid-template-areas: "a b b" ". c c";
+    }
+
+    @include _767 {
+      max-width: 80%;
+      min-width: 344px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+
+      padding: 0 20px;
     }
 
     & > *:nth-child(1) {
@@ -65,6 +81,16 @@
       @include _999 {
         max-width: 100%;
         flex: 1;
+        align-items: start;
+        grid-template-columns: repeat(2, calc(50% - 15px));
+        grid-template-areas: "a c" "b c";
+        gap: 20px 30px;
+      }
+
+      @include _767 {
+        max-width: 80%;
+        min-width: 344px;
+        padding: 20px;
       }
 
       &:before {
@@ -76,6 +102,18 @@
         width: 1px;
         bottom: 60px;
         border-left: 1px solid var(--color-secondary);
+        @include _999 {
+          left: 30px;
+          top: 67px;
+          height: 1px;
+          width: 50%;
+          bottom: auto;
+          border-top: 1px solid var(--color-secondary);
+          border-left: none;
+        }
+        @include _767 {
+          display: none;
+        }
       }
 
       &:after {
@@ -88,6 +126,14 @@
         bottom: 58px;
         border-radius: 5px;
         background: var(--color-secondary);
+        @include _999 {
+          left: calc(50% + 30px);
+          top: 65px;
+          bottom: auto;
+        }
+        @include _767 {
+          display: none;
+        }
       }
     }
   }
@@ -97,17 +143,39 @@
     width: 300px;
     &--bay {
       margin-left: 30px;
+      @include _999 {
+        margin-left: 0;
+        margin-bottom: 0;
+      }
+    }
+    @include _767 {
+      margin-bottom: 20px;
+      text-align: center;
+      width: 100%;
     }
   }
 
   &__content {
     &--bay {
       margin-left: 30px;
+      @include _999 {
+        margin-left: 0;
+      }
     }
   }
 
   &__bay-wrapper {
     margin-top: 40px;
+    @include _999 {
+      margin-top: 0;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 10px;
+    }
+    @include _767 {
+      margin-top: 20px;
+      display: block;
+    }
   }
 
   &__bay-label {
@@ -120,6 +188,9 @@
   &__bay-button {
     width: 100%;
     height: 60px;
+    @include _999 {
+      height: 50px;
+    }
   }
 
   &__sub-text {
@@ -130,6 +201,11 @@
     margin-top: 30px;
     @include _999 {
       margin-top: 0;
+    }
+    @include _767 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 
