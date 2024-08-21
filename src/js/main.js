@@ -1,104 +1,89 @@
-scrollFunction();
+class FleytMain {
+  constructor() {
+    this.setColor = 2;
+    this.colorsList = ['white', 'black', 'red', 'other'];
 
-window.playIntro = function (el) {
-  el.classList.add("about__video-preview--play");
-  const url = el.children[0].src;
-  el.children[0].src= "";
-  el.children[0].src = url;
-}
+    document.addEventListener("scroll", (e) => {
+      this.scrollEvent();
+    });
 
-window.selectColor = function (className, el) {
-  console.log('select');
-  const root = document.getElementById(el);
-  if(root === undefined) {
-    return;
+    this.scrollEvent();
   }
 
-  root.classList.remove('red');
-  root.classList.remove('black');
-  root.classList.remove('white');
-  root.classList.remove('other');
-  root.classList.add(className);
+  scrollEvent() {
+    this.introParallax();
+    this.startAnimation(document.getElementById("about-video").parentElement, "about__video-preview--play");
 
-  event.stopPropagation();
-}
+    this.startAnimation(document.getElementById("construction-unit"), "construction__unit--view");
+    this.startAnimation(document.getElementById("construction-2-row"), "construction__2-row--view");
 
-window.setColor = 2 ;
-window.nextColor = function (el) {
-  console.log('next');
-  const root = document.getElementById(el);
-  if(root === undefined) {
-    return;
+    this.parallaxAnimation(document.getElementById("effect-animation"), "effect__anim-wrapper--view");
+    this.parallaxAnimation(document.getElementById("gallery"), "gallery--view", 0, false);
   }
 
-  const colorsList = ['white', 'black', 'red', 'other'];
-  window.setColor ++ ;
-  window.setColor = window.setColor % 4;
-
-  root.classList.remove('red');
-  root.classList.remove('black');
-  root.classList.remove('white');
-  root.classList.remove('other');
-  root.classList.add(colorsList[window.setColor]);
-}
-
-window.openMenu = function () {
-  window.isOpenMenu = !window.isOpenMenu;
-  if(window.isOpenMenu) {
-    document.getElementById("header").classList.add("header--open");
-    document.body.style.overflow = "hidden";
-  }else {
-    document.getElementById("header").classList.remove("header--open");
-    document.body.style.overflow = "auto";
-  }
-}
-
-window.onscroll = function() {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("header").classList.add("header--small");
-
-    document.getElementById("intro-image").classList.add("intro__image--parallax");
-  } else {
-    document.getElementById("header").classList.remove("header--small");
-
-    document.getElementById("intro-image").classList.remove("intro__image--parallax");
+  introParallax() {
+    if (document.body.scrollTop > 580 || document.documentElement.scrollTop > 580) {
+      document.getElementById("intro-image").classList.add("intro__image--parallax");
+    } else {
+      document.getElementById("intro-image").classList.remove("intro__image--parallax");
+    }
   }
 
-  let actionEl = document.getElementById("about-video").parentElement;
-  let rect = actionEl.getBoundingClientRect();
-  if(window.outerHeight - actionEl.clientHeight > rect.top && rect.top < window.outerHeight / 2.2) {
-    actionEl.classList.add("about__video-preview--play");
+  parallaxAnimation (actionEl, animClass, dT = 150, isCenter = true){
+    if(actionEl === undefined || typeof actionEl !== 'object') {
+      return;
+    }
+
+    let rect = actionEl.getBoundingClientRect();
+    if ((window.outerHeight - actionEl.clientHeight) / (isCenter ? 2 : 1) + dT > rect.top) {
+      actionEl.classList.add(animClass);
+    } else {
+      actionEl.classList.remove(animClass);
+    }
   }
 
-  actionEl = document.getElementById("construction-unit");
-  rect = actionEl.getBoundingClientRect();
-  if(window.outerHeight - actionEl.clientHeight > rect.top && rect.top < window.outerHeight / 2.2) {
-    actionEl.classList.add("construction__unit--view");
+  startAnimation(actionEl, animClass){
+    if(actionEl === undefined || typeof actionEl !== 'object') {
+      return;
+    }
+
+    let rect = actionEl.getBoundingClientRect();
+    if (window.outerHeight - actionEl.clientHeight > rect.top && rect.top < window.outerHeight / 2.2) {
+      actionEl.classList.add(animClass);
+    }
   }
 
-  actionEl = document.getElementById("construction-2-row");
-  rect = actionEl.getBoundingClientRect();
-  if(window.outerHeight - actionEl.clientHeight > rect.top && rect.top < window.outerHeight / 2.2) {
-    actionEl.classList.add("construction__2-row--view");
+  playIntro(el) {
+    if(el === undefined) {
+      return;
+    }
+    el.classList.add("about__video-preview--play");
+    const url = el.children[0]?.src;
+    if(url) {
+      el.children[0].src = "";
+      el.children[0].src = url;
+    }
   }
 
-  actionEl = document.getElementById("gallery");
-  rect = actionEl.getBoundingClientRect();
-  if(window.outerHeight - actionEl.clientHeight - 100 > rect.top) {
-    actionEl.classList.add("gallery--view");
-  }else {
-    actionEl.classList.remove("gallery--view");
+  selectColor(className, el) {
+    const root = document.getElementById(el);
+    if (root === undefined) {
+      return;
+    }
+
+    this.colorsList.forEach((name) => root.classList.remove(name));
+    root.classList.add(className);
+
+    window.event.stopPropagation();
   }
 
-  actionEl = document.getElementById("effect-animation");
-  rect = actionEl.getBoundingClientRect();
-  if(window.outerHeight / 2 - actionEl.clientHeight/2 + 150 > rect.top) {
-    actionEl.classList.add("effect__anim-wrapper--view");
-  }else {
-    actionEl.classList.remove("effect__anim-wrapper--view");
+  nextColor(el) {
+    this.setColor = (this.setColor + 1)  % 4;
+
+    this.selectColor(this.colorsList[this.setColor], el);
   }
 }
+
+(function (w) {
+  w.fleytMain = new FleytMain();
+})(window);

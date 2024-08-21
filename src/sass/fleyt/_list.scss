@@ -3,7 +3,7 @@
 .list {
   list-style-type: none;
 
-  &--doted {
+  &--doted, &--text-doted {
     li {
       margin: 1em 0;
       position: relative;
@@ -30,6 +30,20 @@
           height: 6px;
         }
       }
+    }
+  }
+
+  &--text-doted li{
+    &:after {
+      background: var(--color-gray);
+    }
+  }
+
+  &--number {
+    list-style-type: decimal;
+    margin-inline-start: 1.2em;
+    & > * {
+      line-height: 1.3em;
     }
   }
 }

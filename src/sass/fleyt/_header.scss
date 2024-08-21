@@ -12,8 +12,17 @@
   z-index: 100;
   transition: .2s ease-out;
 
+  @include _999 {
+    height: 60px;
+  }
+
   &__top {
     width: 100%;
+    @include _999 {
+      display: none;
+      opacity: 0;
+      transition: .2s ease-out;
+    }
   }
 
   &__bottom {
@@ -26,6 +35,12 @@
     z-index: 100;
     background: var(--color-bg);
     transition: top, height .2s ease-out;
+    @include _1279 {
+      height: 60px;
+    }
+    @include _767 {
+      height: 50px;
+    }
   }
 
   &__mobile {
@@ -38,6 +53,15 @@
     align-items: center;
     height: 100%;
     transition: .2s ease-out;
+    @include _1279 {
+      padding-left: 50px;
+    }
+    @include _999 {
+      padding-left: 60px;
+    }
+    @include _767 {
+      padding-left: 42px;
+    }
   }
 
   &__nav-wrapper {
@@ -67,6 +91,9 @@
 
   &__menu {
     width: 100%;
+    @include _999 {
+      display: none;
+    }
   }
 
   &__logo {
@@ -80,8 +107,25 @@
     transform: rotate(10deg);
 
     transition: .5s ease-out;
+
+    @include _1279 {
+      right: 100%;
+      left: -10px;
+      transform: rotate(0deg);
+      width: 50px;
+      height: 50px;
+      padding: 5px 0 !important;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      background: none !important;
+    }
     @include _999 {
       box-shadow: none !important;
+      left: 10px;
+    }
+    @include _767 {
+      left: -2px;
     }
   }
 
@@ -89,6 +133,10 @@
     display: none;
     font-size: var(--font-size-h3);
     padding-bottom: 2px;
+    @include _999 {
+      display: block;
+      margin-right: auto;
+    }
   }
 
   &__cart-button, &__phone-button {
@@ -141,6 +189,9 @@
 
   &__phone-button {
     background: url(../assets/phone-icon.svg) no-repeat center;
+    @include _767 {
+      display: none;
+    }
   }
 
   &__mobile-button {
@@ -160,6 +211,9 @@
     border-radius: 2px;
     display: none;
 
+    @include _999 {
+      display: block;
+    }
     @include _767 {
       width: 25px;
       height: 2px;
@@ -203,7 +257,7 @@
       right: 100%;
       left: -10px;
       transform: rotate(0deg);
-      box-shadow: none;
+      box-shadow: none !important;
       width: 50px;
       height: 50px;
       padding: 5px 0;
@@ -215,68 +269,23 @@
     height: 60px;
     top: 0;
     position: fixed;
+    @include _767 {
+      height: 50px;
+    }
   }
 
   @media only screen and (min-width: 1000px) {
     &--small &__bottom-wrapper {
       padding-left: 50px;
     }
-  }
 
-  @media only screen and (max-width: 1279px) {
-    &__bottom {
-      height: 60px;
-    }
-
-    &__bottom-wrapper {
-      padding-left: 50px;
-    }
-
-    &__logo {
-      right: 100%;
-      left: -10px;
-      transform: rotate(0deg);
-      box-shadow: none;
-      width: 50px;
-      height: 50px;
-      padding: 5px 0 !important;
-      top: 0;
-      bottom: 0;
-      margin: auto 0;
-      background: none !important;
+    &--small &__logo {
+      box-shadow: none !important;
     }
   }
+
 
   @media only screen and (max-width: 999px) {
-    height: 60px;
-
-    &__top {
-      display: none;
-      opacity: 0;
-      transition: .2s ease-out;
-    }
-
-    &__bottom-wrapper {
-      padding-left: 60px;
-    }
-
-    &__logo {
-      left: 10px;
-    }
-
-    &__name {
-      display: block;
-      margin-right: auto;
-    }
-
-    &__menu {
-      display: none;
-    }
-
-    &__mobile-button {
-      display: block;
-    }
-
     &--open {
       background: var(--color-bg-light);
       position: fixed;
@@ -356,22 +365,6 @@
   @media only screen and (max-width: 767px) {
     &:not(&--open) {
       height: 50px;
-    }
-
-    &__bottom {
-      height: 50px;
-    }
-
-    &__phone-button {
-      display: none;
-    }
-
-    &__bottom-wrapper {
-      padding-left: 42px;
-    }
-
-    &__logo {
-      left: -2px;
     }
   }
 }

@@ -31,6 +31,7 @@
     margin-bottom: 21px;
     border-radius: 50px 0 50px 0;
     background: url(../../assets/c_red.jpg) no-repeat center;
+    cursor: pointer;
     transition: 1s ease-in;
     @include _1279{
       width: 400px;

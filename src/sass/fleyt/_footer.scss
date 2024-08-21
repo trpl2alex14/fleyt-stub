@@ -3,6 +3,7 @@
 .footer {
   margin: 0;
   padding: 100px 0 0;
+  @extend .box-shadow-xl;
 
   @include _999 {
     padding-top: 80px;

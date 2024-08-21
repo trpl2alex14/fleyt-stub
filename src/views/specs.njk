@@ -1,0 +1,14 @@
+{% extends "layouts/template.njk" %}
+
+{% block title %}&#171;Флэйт&#187; - технические характеристики радиаторов{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="@styles/fleyt/specs/index.scss">
+  <script src="@scripts/specs.js" defer="defer"></script>
+{% endblock %}
+
+{% block content %}
+
+  {% include "blocks/specs.html" %}
+
+{% endblock %}

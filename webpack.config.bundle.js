@@ -25,7 +25,10 @@ module.exports = {
       // path to templates
       entry: {
         index: 'src/views/index.njk',
-        home: 'src/views/home.njk'
+        specs: {
+          import: 'src/views/specs.njk',
+          filename: '[name]'
+        }
       },
       js: {
         // output filename of compiled JavaScript
@@ -77,8 +80,8 @@ module.exports = {
   // enable HMR with live reload
   devServer: {
     static: path.resolve(__dirname, 'dist_bundle'),
-    hot: true,
-    open: false,
+    //hot: true,
+    //open: false,
     watchFiles: {
       paths: ['src/**/**/*.*'],
       options: {

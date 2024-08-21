@@ -20,6 +20,9 @@
 
   &__container {
     position: relative;
+    @include _999 {
+      overflow: hidden;
+    }
   }
 
   &__title {

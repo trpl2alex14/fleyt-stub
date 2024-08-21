@@ -18,7 +18,6 @@
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
-    overflow: hidden; //fix
   }
 
   @include _767 {
@@ -62,6 +61,32 @@
     @include _1279 {
       width: calc(var(--grid-width) * 5 + var(--grid-gap) * 4);
       min-width: calc(var(--grid-width) * 5 + var(--grid-gap) * 4);
+    }
+
+    @include _999 {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  &--4x8 {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    @include _1279 {
+      gap: 10px;
+    }
+    @include _999 {
+      flex-direction: column;
+    }
+  }
+
+  &--4x8 &__left {
+    width: calc(var(--grid-width) * 4 + var(--grid-gap) * 3);
+    min-width: calc(var(--grid-width) * 4 + var(--grid-gap) * 3);
+
+    @include _1279 {
+
     }
 
     @include _999 {

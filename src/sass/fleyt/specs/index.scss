@@ -1,0 +1,443 @@
+@import "../mixins";
+
+.specs {
+  --w-col: 274px;
+  margin-top: 120px;
+  padding-top: 70px;
+  padding-bottom: 50px;
+
+  background: var(--color-bg-light);
+  overflow-x: clip;
+
+  @include _1279 {
+    --w-col: 216px;
+  }
+  @include _999 {
+    --w-col: 216px;
+    margin-top: 60px;
+    padding-top: 50px;
+  }
+  @include _767 {
+    --w-col: 172px;
+  }
+  @include _resp(531px) {
+    --w-col: 172px;
+  }
+
+  &__h1 {
+    @include _767 {
+      text-align: center;
+    }
+  }
+
+  &__container {
+    padding-bottom: 100px;
+
+    @include _1279 {
+      padding-bottom: 70px;
+    }
+    @include _999 {
+      padding-bottom: 50px;
+    }
+    @include _767 {
+      gap: 0;
+      width: 532px;
+      padding-bottom: 30px;
+    }
+    @include _resp(531px) {
+      width: 360px;
+    }
+
+    &--params {
+      padding-bottom: 30px;
+      @include _999 {
+        padding-bottom: 20px;
+      }
+    }
+
+    &--hr {
+      & > * {
+        padding-top: 50px;
+        @include _999 {
+          padding-top: 10px;
+        }
+      }
+
+      & > *:nth-child(2) {
+        border-top: 1px solid var(--color-text-light);
+      }
+    }
+
+    &--heat {
+      @include _999 {
+        flex-direction: column-reverse;
+      }
+
+      & > * {
+        @include _999 {
+          padding-bottom: 30px;
+        }
+        @include _767 {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__left {
+    position: sticky;
+    top: -435px;
+    z-index: 30;
+    @include _1279 {
+      top: -350px;
+    }
+    @include _999 {
+      position: relative;
+      top: 0;
+      display: flex;
+      margin-bottom: 30px;
+      & > * {
+        flex: 1;
+      }
+    }
+    @include _767 {
+      display: block;
+      padding-top: 30px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    @include _999 {
+      margin-bottom: 0;
+    }
+    @include _767 {
+      margin-bottom: 10px;
+    }
+
+    &--sticky {
+      margin-top: 530px;
+      margin-bottom: 100px;
+      @include _1279 {
+        margin-top: 430px;
+      }
+      @include _999 {
+        margin-top: 0;
+        margin-bottom: 0;
+        display: none;
+      }
+    }
+  }
+
+  &__models {
+    margin-bottom: 50px;
+  }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include _1279 {
+      gap: 20px;
+    }
+    @include _767 {
+      gap: 10px;
+      width: calc(var(--w-col) * 3);
+      margin: 0 auto;
+      overflow-x: clip;
+    }
+    @include _resp(531px) {
+      width: calc(var(--w-col) * 2);
+    }
+  }
+
+  &__t-header {
+    display: flex;
+    height: 500px;
+    position: sticky;
+    z-index: 20;
+    font-size: var(--font-size-h3);
+    top: -370px;
+    @include _1279 {
+      height: 400px;
+      top: -270px;
+    }
+    @include _999 {
+      align-items: flex-end;
+    }
+    @include _767 {
+      height: 300px;
+      top: -185px;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    height: 40px;
+    bottom: -10px;
+    right: 0;
+    display: flex;
+    gap: 10px;
+    z-index: 30;
+    align-items: flex-start;
+    transition: .3s ease-in;
+    @include _999 {
+      display: none;
+    }
+    @include _767 {
+      display: flex;
+      bottom: -22px;
+    }
+  }
+
+  &__slider-prev {
+    fill: var(--color-text-light);
+    cursor: initial;
+  }
+
+  &__slider-next {
+    fill: var(--color-primary);
+    cursor: pointer;
+  }
+
+  &__table--left &__slider-prev {
+    fill: var(--color-primary);
+    cursor: pointer;
+  }
+
+  &__table--left &__slider-next {
+    fill: var(--color-text-light);
+    cursor: initial;
+  }
+
+  &__model {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    padding-bottom: 20px;
+    background: var(--color-bg-light);
+    left: 0;
+    transition: left .3s ease-in;
+    @include _999 {
+      width: 100%;
+    }
+    @include _767 {
+      width: auto;
+    }
+  }
+
+  &__model-image {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    background: var(--color-bg);
+    padding: 10px 10px calc(1em + 20px) 10px;
+    position: relative;
+    font-size: var(--font-size-action);
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: -200px;
+      left: 100%;
+      top: 0;
+      bottom: 0;
+      width: 200px;
+      background: var(--color-bg);
+      @include _1279 {
+        right: -150px;
+        width: 150px;
+      }
+      @include _999 {
+        display: none;
+      }
+    }
+  }
+
+  &__row:after, &__t-header:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: calc(-1 * var(--w-col));
+    left: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: var(--w-col);
+    background: linear-gradient(to right, #fff0, #eee 170px);
+    @include _999 {
+      display: none;
+    }
+  }
+
+  &__table--left &__row:after, &__table--left &__t-header:after {
+    left: calc(-1 * var(--w-col));
+    width: var(--w-col);
+    background: linear-gradient(to left, #fff0, #eee 100px);
+  }
+
+  &__table--left &__row:before, &__table--left &__t-header:before {
+    left: -200px;
+    width: 200px;
+    background: var(--color-bg);
+    @include _1279 {
+      left: -150px;
+      width: 150px;
+    }
+  }
+
+  &__values {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    transition: left .3s ease-in;
+    left: 0;
+    @include _999 {
+      width: 100%;
+    }
+    @include _767 {
+      width: auto;
+    }
+  }
+
+  &__table--left &__values, &__table--left &__model {
+    left: calc(-1 * var(--w-col));
+    @include _999 {
+      left: 0;
+    }
+    @include _767 {
+      left: calc(-1 * var(--w-col));
+    }
+    @include _resp(531px) {
+      left: calc(-2 * var(--w-col));
+    }
+  }
+
+  &__col {
+    width: var(--w-col);
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__t-header &__col {
+    font-weight: 300;
+    @include _999 {
+      font-size: var(--font-size-h4);
+    }
+  }
+
+
+  &__property {
+    span {
+      color: var(--color-text-light);
+      font-size: 0.8em;
+    }
+  }
+
+  &__meas {
+    color: var(--color-text-light);
+    padding-left: 5px;
+    font-size: 0.8em;
+  }
+
+
+  &__content {
+    font-size: var(--font-size-text-big);
+    font-weight: 300;
+
+    ul, li {
+      font-weight: 300;
+    }
+
+    ul {
+      margin-bottom: 2em;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__list--cert &__line {
+    align-items: flex-start;
+    @include _767 {
+      display: block;
+    }
+  }
+
+  &__label {
+    font-size: var(--font-size-text-big);
+    font-weight: 300;
+
+    > strong {
+      font-weight: 500;
+    }
+  }
+
+  &__value {
+    font-size: var(--font-size-text-big);
+    min-width: 250px;
+    text-align: center;
+
+    > strong {
+      font-weight: 500;
+    }
+
+    @include _767 {
+      min-width: 120px;
+      text-align: right;
+    }
+  }
+
+  &__list--cert &__value {
+    text-align: left;
+    width: 50%;
+    @include _767 {
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  &__sub-text {
+    margin-top: 10px;
+    font-size: var(--font-size-text);
+    font-weight: 300;
+    color: var(--color-gray);
+
+    & * {
+      font-size: var(--font-size-text);
+      font-weight: 300;
+    }
+  }
+
+  &__docs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 0;
+    @include _767 {
+      gap: 20px;
+    }
+
+    & > * {
+      width: 50%;
+      @include _767 {
+        width: calc(50% - 20px);
+      }
+      @include _resp(531px) {
+        width: 100%;
+      }
+    }
+  }
+}
