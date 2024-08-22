@@ -1,3 +1,189 @@
-.example {
+@import "../mixins";
 
+.example {
+  width: 100%;
+  border-radius: 30px 0 30px 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(200, 200, 200);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include _1279 {
+    flex-direction: column;
+  }
+  @include _999 {
+    flex-direction: row;
+    max-width: 80%;
+    min-width: 700px;
+    margin: 0 auto;
+  }
+  @include _767 {
+    min-width: 500px;
+    max-width: 100%;
+  }
+  @include _resp(610px) {
+    flex-direction: column;
+    max-width: initial;
+    min-width: 344px;
+    background-size: auto 250px;
+  }
+
+  &__title {
+    color: var(--color-bg);
+    font-size: var(--font-size-h3);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    text-shadow: 0 0 5px var(--color-text);
+    flex: 4;
+    @include _1279 {
+      min-height: 220px;
+    }
+    @include _999 {
+      padding: 30px 40px;
+    }
+  }
+
+  &__wrapper {
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 30px 0 0 0;
+    flex: 3;
+    @include _1279 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 0;
+      padding: 20px 30px;
+      background: var(--color-bg-light);
+    }
+    @include _999 {
+      display: block;
+      padding: 30px 40px;
+    }
+    @include _resp(610px) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 0;
+      padding: 16px;
+      background: var(--color-bg-light);
+    }
+  }
+
+  &__about {
+    display: flex;
+    gap: 0;
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1 50%;
+    @include _1279 {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      padding: 0 10px 0;
+    }
+    @include _999 {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 0 30px 0;
+    }
+    @include _767 {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      padding: 0;
+    }
+    @include _resp(610px) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      padding: 0 10px 0;
+    }
+  }
+
+  &__size, &__value {
+    font-size: var(--font-size-h4);
+    font-weight: 600;
+    @include _767 {
+      font-size: var(--font-size-action);
+    }
+
+    span {
+      font-size: var(--font-size-action);
+      font-weight: 400;
+      color: var(--color-gray);
+      @include _767 {
+        font-size: var(--font-size-text);
+      }
+    }
+  }
+
+  &__city {
+    font-size: var(--font-size-h4);
+    @include _767 {
+      font-size: var(--font-size-action);
+    }
+  }
+
+  &__row {
+    margin-top: 10px;
+    flex: 1 50%;
+    @include _1279 {
+      margin-top: 0;
+      padding: 0 10px 0;
+    }
+    @include _999 {
+      margin-top: 10px;
+      padding: 0;
+    }
+    @include _resp(610px) {
+      margin-top: 0;
+      padding: 0 10px 0;
+    }
+  }
+
+  &__label {
+    font-size: var(--font-size-text);
+    font-weight: 300;
+  }
+
+  &__link {
+    position: absolute;
+    left: 40px;
+    bottom: 30px;
+    color: var(--color-secondary);
+    opacity: 0;
+    font-weight: 600;
+    font-size: var(--font-size-action);
+    text-transform: uppercase;
+    transition: opacity .3s ease-out;
+    @include _1279 {
+      bottom: auto;
+      top: 210px;
+    }
+    @include _999 {
+      opacity: 1;
+      top: auto;
+      bottom: 30px;
+    }
+    @include _767 {
+      opacity: 1;
+      bottom: 30px;
+      text-transform: initial;
+      text-decoration: underline;
+      font-weight: 400;
+      color: var(--color-bg);
+      text-shadow: 0 0 5px var(--color-text);
+    }
+    @include _resp(610px) {
+      top: 60px;
+      bottom: auto;
+    }
+  }
+
+  &:hover &__link {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--color-text);
+  }
 }

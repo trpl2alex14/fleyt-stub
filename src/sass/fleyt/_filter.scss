@@ -1,13 +1,100 @@
+@import "mixins";
+
 .filter {
+  margin-top: 50px;
+
+  @include _999 {
+    margin-top: 20px;
+  }
+
   &--h-tags {
 
   }
 
   &--list {
-
+    display: flex;
+    flex-direction: column;
+    @include _999 {
+      flex-direction: row;
+      gap: 30px;
+    }
+    @include _767 {
+      justify-content: center
+    }
   }
 
   &__item {
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+    font-size: var(--font-size-action);
+    @extend .link;
 
+    @include _999 {
+      margin-bottom: 20px;
+    }
+
+    @include _767 {
+      flex: 1;
+    }
+
+    &--activate {
+      color: var(--color-text-light);
+      cursor: default;
+
+      &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        height: 1px;
+        right: -30px;
+        z-index: 20;
+        background: var(--color-secondary);
+        @include _1279 {
+          right: -10px;
+        }
+        @include _999 {
+          right: 0;
+          bottom: -6px;
+        }
+      }
+
+      &:after {
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        right: -30px;
+        height: 5px;
+        width: 5px;
+        border-radius: 3px;
+        z-index: 20;
+        background: var(--color-secondary);
+        @include _1279 {
+          right: -10px;
+        }
+        @include _999 {
+          display: none;
+        }
+      }
+
+      &:hover {
+        color: var(--color-text-light) !important;
+      }
+    }
+  }
+
+  &__content {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity .3s ease-out;
+    overflow: hidden;
+
+    &--open {
+      max-height: max-content;
+      opacity: 1;
+    }
   }
 }

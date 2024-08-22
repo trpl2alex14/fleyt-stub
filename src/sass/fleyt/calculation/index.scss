@@ -3,7 +3,13 @@
 .calculation {
 
   &:last-of-type {
-    padding-bottom: 150px;
+    padding-bottom: 200px;
+    @include _1279 {
+      padding-bottom: 150px;
+    }
+    @include _999 {
+      padding-bottom: 100px;
+    }
   }
 
   &:first-of-type {
@@ -28,6 +34,7 @@
       position: relative;
       padding-top: 70px;
       padding-bottom: 170px;
+      margin-bottom: 70px;
     }
   }
 
@@ -35,6 +42,18 @@
     @include _767 {
       position: initial;
       text-align: center;
+    }
+
+    &--sticky {
+      @include _999 {
+        position: sticky;
+        top: 60px;
+        background: var(--color-bg);
+        padding-top: 30px;
+      }
+      @include _767 {
+        top: 50px;
+      }
     }
   }
 
@@ -60,6 +79,12 @@
         stroke: var(--color-secondary);
       }
     }
+  }
+
+  &__examples {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 }
 

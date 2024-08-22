@@ -108,6 +108,7 @@
     &--sticky {
       position: sticky;
       top: 100px;
+      z-index: 50;
 
       @include _999 {
         top: 0;

@@ -32,6 +32,10 @@ module.exports = {
         calculation: {
           import: 'src/views/calculation.njk',
           filename: '[name]'
+        },
+        installation: {
+          import: 'src/views/installation.njk',
+          filename: '[name]'
         }
       },
       js: {
@@ -84,8 +88,7 @@ module.exports = {
   // enable HMR with live reload
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist_bundle'),
-      publicPath: path.resolve(__dirname, 'src'),
+      directory: path.resolve(__dirname, 'src'),
     },
     //hot: true,
     //open: false,

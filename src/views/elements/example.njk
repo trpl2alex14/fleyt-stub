@@ -1,0 +1,24 @@
+<div class="example"
+     style="background-image: linear-gradient(to right, rgba(0,0,0, 0) 50%, rgba(200,200,200, .5) 60%, rgba(200,200,200, 1)), url({{ item.img }});">
+
+  <a href="#" class="example__link link">Подробнее</a>
+  <div class="example__title">{{ item.title }}</div>
+  <div class="example__wrapper">
+    <div class="example__about">
+      <div class="example__size">{{ item.size }}<span>м&sup2;</span></div>
+      <div class="example__city">{{ item.city }}</div>
+    </div>
+    <div class="example__row">
+      <div class="example__label">Стоимость оборудования</div>
+      <div class="example__value">{{ item.sum }}<span>₽</span></div>
+    </div>
+    <div class="example__row">
+      <div class="example__label">Мощность оборудования</div>
+      <div class="example__value">{{ item.power }}<span>кВт</span></div>
+    </div>
+    <div class="example__row">
+      <div class="example__label">Среднемесячные расходы на&nbsp;отопление</div>
+      <div class="example__value">{{ item.pay }}<span>₽</span></div>
+    </div>
+  </div>
+</div>
