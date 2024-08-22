@@ -1,0 +1,114 @@
+@import "mixins";
+
+.content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include _999 {
+    padding-top: 10px;
+  }
+  @include _767 {
+    position: relative;
+  }
+
+  &__header {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 100px;
+    border-radius: 0 0 50px 0;
+    overflow: hidden;
+
+    @include _1279 {
+      padding-top: 70px;
+    }
+    @include _999 {
+      border-radius: 0 0 30px 0;
+    }
+    @include _767 {
+      padding-top: 50px;
+      position: initial;
+      max-height: 350px;;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px 40px 20px 0;
+    max-width: 70%;
+    border-radius: 0 0 30px 0;
+    background: var(--color-bg);
+    @include _767 {
+      padding: 8px;
+      max-width: 100%;
+      min-width: 360px;
+    }
+  }
+
+  &__header-image {
+    max-width: 820px;
+    @include _999 {
+      max-width: 728px;
+    }
+  }
+
+  &__description {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 50px;
+    gap: 30px;
+
+    @include _1279 {
+      margin-top: 30px;
+    }
+    @include _999 {
+      max-width: 728px;
+    }
+    @include _767 {
+      flex-wrap: wrap;
+    }
+
+    &--numbers {
+      justify-content: space-between
+    }
+  }
+
+  &__description-item {
+    flex: 1 1 150px;
+  }
+
+  &__description-title {
+    text-align: right;
+    font-size: var(--font-size-h3);
+    font-weight: 600;
+
+    span {
+      font-size: var(--font-size-action);
+      font-weight: 400;
+    }
+  }
+
+  &__description-hint {
+    text-align: right;
+    font-size: var(--font-size-text);
+    font-weight: 400;
+    color: var(--color-text-light);
+  }
+
+  &__description--wow &__description-title {
+    text-align: center;
+    color: var(--color-primary);
+  }
+
+  &__description--wow &__description-hint {
+    text-align: center;
+    color: var(--color-gray);
+  }
+
+}

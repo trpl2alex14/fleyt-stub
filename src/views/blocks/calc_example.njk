@@ -1,0 +1,92 @@
+{% set items = [
+  {
+    'title' : "Барнхаус",
+    'size' : 65,
+    'city' : "Челябинск",
+    'sum' : "75 000",
+    'pay' : "4000",
+    'power' : 4
+  },
+  {
+    'title' : "Барнхаус",
+    'size' : 65,
+    'city' : "Челябинск",
+    'sum' : "75 000",
+    'pay' : "4000",
+    'power' : 4
+  }
+] %}
+<div class="calculation">
+  <div class="container container--5x7">
+    <div class="container__left container__left--sticky">
+      <div class="title title--h2">Примеры расчётов</div>
+      <div class="filter filter--list">
+        <a href="#" class="filter__item filter__item--activate" data-filter-id="example-1">Частные дома</a>
+        <a href="#" class="filter__item" data-filter-id="example-2">Квартиры и лоджии</a>
+        <a href="#" class="filter__item" data-filter-id="example-3">Коммерческие объекты</a>
+      </div>
+    </div>
+    <div class="container__content calculation__examples">
+      <div class="filter__content filter__content--open" id="content-example-1">
+
+        <div class="example" style="background-image: ">
+          <a href="#" class="example__link link">Подробнее</a>
+          <div class="example__title">Дубль Дом KEDR</div>
+          <div class="example__wrapper">
+            <div class="example__about">
+              <div class="example__size">134<span>м&sup2;</span></div>
+              <div class="example__city">Москва</div>
+            </div>
+          </div>
+          <div class="example__row">
+            <div class="example__label">Стоимость оборудования</div>
+            <div class="example__value">325 000<span>₽</span></div>
+          </div>
+          <div class="example__row">
+            <div class="example__label">Мощность оборудования</div>
+            <div class="example__value">7<span>кВт</span></div>
+          </div>
+          <div class="example__row">
+            <div class="example__label">Среднемесячные расходы на&nbsp;отопление</div>
+            <div class="example__value">10 000<span>₽</span></div>
+          </div>
+        </div>
+
+        {% for item in items %}
+        <div class="example">
+          <a href="#" class="example__link link">Подробнее</a>
+          <div class="example__title">{{ item.title }}</div>
+          <div class="example__wrapper">
+            <div class="example__about">
+              <div class="example__size">{{ item.size }} <span>м&sup2;</span></div>
+              <div class="example__city">{{ item.city }}</div>
+            </div>
+          </div>
+          <div class="example__row">
+            <div class="example__label">Стоимость оборудования</div>
+            <div class="example__value">{{ item.sum }}<span>₽</span></div>
+          </div>
+          <div class="example__row">
+            <div class="example__label">Мощность оборудования</div>
+            <div class="example__value">{{ item.power }}<span>кВт</span></div>
+          </div>
+          <div class="example__row">
+            <div class="example__label">Среднемесячные расходы на&nbsp;отопление</div>
+            <div class="example__value">{{ item.pay }}<span>₽</span></div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+      <div class="filter__content filter__content--open" id="content-example-2">
+
+      </div>
+      <div class="filter__content filter__content--open" id="content-example-3">
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

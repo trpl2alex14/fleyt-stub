@@ -1,0 +1,17 @@
+{% extends "layouts/template.njk" %}
+
+{% block title %}&#171;Флэйт&#187; - Расчёт электрической системы отопления{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="@styles/fleyt/calculation/index.scss">
+  <script src="@scripts/calculation.js" defer="defer"></script>
+{% endblock %}
+
+{% block content %}
+
+  {% include "blocks/calc_header.html" %}
+  {% include "blocks/calc_action.html" %}
+  {% include "blocks/calc_faq.html" %}
+  {% include "blocks/calc_example.njk" %}
+
+{% endblock %}

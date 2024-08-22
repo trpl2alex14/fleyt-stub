@@ -28,6 +28,10 @@ module.exports = {
         specs: {
           import: 'src/views/specs.njk',
           filename: '[name]'
+        },
+        calculation: {
+          import: 'src/views/calculation.njk',
+          filename: '[name]'
         }
       },
       js: {
@@ -79,7 +83,10 @@ module.exports = {
 
   // enable HMR with live reload
   devServer: {
-    static: path.resolve(__dirname, 'dist_bundle'),
+    static: {
+      directory: path.resolve(__dirname, 'dist_bundle'),
+      publicPath: path.resolve(__dirname, 'src'),
+    },
     //hot: true,
     //open: false,
     watchFiles: {

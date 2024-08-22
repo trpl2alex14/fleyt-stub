@@ -269,6 +269,9 @@
     height: 60px;
     top: 0;
     position: fixed;
+    @include _999 {
+      position: relative;
+    }
     @include _767 {
       height: 50px;
     }

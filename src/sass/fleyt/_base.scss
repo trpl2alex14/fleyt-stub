@@ -1,3 +1,5 @@
+@import "mixins";
+
 * {
   margin: 0;
   padding: 0;
@@ -28,4 +30,15 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-size: var(--font-size-text);
+
+  margin-top: 120px;
+  @include _1279 {
+    margin-top: 100px;
+  }
+  @include _999 {
+    margin-top: 60px;
+  }
+  @include _767 {
+    margin-top: 50px;
+  }
 }

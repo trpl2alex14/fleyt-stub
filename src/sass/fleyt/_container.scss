@@ -66,6 +66,15 @@
     @include _999 {
       width: 100%;
       min-width: 0;
+      &--flex {
+        display: flex;
+        @include _767 {
+          display: block;
+        }
+        & > * {
+          flex: 1;
+        }
+      }
     }
   }
 
