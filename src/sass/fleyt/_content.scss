@@ -1,8 +1,10 @@
 @import "mixins";
 
 .content {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  &--padding {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 
   @include _999 {
     padding-top: 10px;
@@ -111,4 +113,40 @@
     color: var(--color-gray);
   }
 
+
+  &__body {
+    padding-bottom: 50px;
+
+    > h3 {
+      font-size: var(--font-size-h3);
+      margin-top: 50px;
+      margin-bottom: 20px;
+      @include _767 {
+        margin-top: 30px;
+        margin-bottom: 10px;
+      }
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    > h4 {
+      font-size: var(--font-size-h4);
+      margin-top: 30px;
+      margin-bottom: 20px;
+      @include _767 {
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+    }
+
+    > p {
+      font-size: var(--font-size-text);
+      > i {
+        color: var(--color-text-light);
+        font-style: normal;
+        font-weight: 300;
+      }
+    }
+  }
 }

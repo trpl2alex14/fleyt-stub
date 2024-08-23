@@ -1,0 +1,141 @@
+@import "../mixins";
+.installation{
+  &:last-of-type {
+    padding-bottom: 200px;
+    @include _1279 {
+      padding-bottom: 150px;
+    }
+    @include _999 {
+      padding-bottom: 100px;
+    }
+  }
+
+  &:first-of-type {
+    @include _767 {
+      padding-top: 30px;
+    }
+  }
+
+  &__description-button {
+    flex: 2 1 200px;
+  }
+
+  &__download-button {
+    width: 400px;
+    min-width: 200px;
+    height: 80px;
+    @include _1279 {
+      height: 70px;
+    }
+    @include _999 {
+      height: 60px;
+      width: 100%;
+    }
+  }
+
+  &--before {
+    background: var(--color-bg-light);
+    padding: 100px 0;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    @include _999 {
+      padding: 70px 0;
+      margin-bottom: 70px;
+    }
+  }
+
+  &__left {
+    > *:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__blockquote {
+    background: #fff;
+    padding: 20px 0;
+    margin: -20px;
+    display: flex;
+    position: relative;
+    border-radius: 30px 0 30px 0;
+    gap: 35px;
+    @include _1279 {
+      margin: -10px -13px;
+      gap: 20px;
+    }
+    @include _767 {
+      margin: 0;
+    }
+    @include _resp(510px) {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__block-regulation, &__block-smart-home {
+    flex: 1;
+    padding: 0 20px 0 30px;
+    @include _1279 {
+      padding: 0 20px;
+    }
+    @include _999 {
+      padding: 0 30px;
+    }
+    @include _767 {
+      padding: 0 30px;
+    }
+    > h4 {
+      font-size: var(--font-size-h4);
+      margin-bottom: 20px;
+      @include _767 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__block-divider {
+    position: absolute;
+    left: calc(50% - 18px);
+    top: 0;
+    bottom: 0;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-text-big);
+    @include _resp(510px) {
+      height: 36px;
+      left: 0;
+      right: 0;
+      top:calc(50% - 18px);
+      bottom: auto;
+      width: auto;
+    }
+    &:before, &:after {
+      position: absolute;
+      content: "";
+      height: 50px;
+      width: 1px;
+      background: var(--color-bg-light);
+      left: 50%;
+      @include _resp(510px) {
+        height: 1px;
+        width: 50px;
+      }
+    }
+    &:before {
+      top: 40px;
+      @include _resp(510px) {
+        top: 50%;
+        left: calc(50% - 100px);
+      }
+    }
+    &:after {
+      bottom: 40px;
+      @include _resp(510px) {
+        bottom: auto;
+        right: calc(50% - 100px);
+        left: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{% extends "layouts/template.njk" %}
+
+{% block title %}&#171;Флэйт&#187; - Монтаж системы отопления{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="@styles/fleyt/installation/index.scss">
+{% endblock %}
+
+{% block content %}
+
+  {% include "blocks/install_header.html" %}
+  {% include "blocks/install_before.html" %}
+  {% include "blocks/install_manual.html" %}
+
+{% endblock %}
