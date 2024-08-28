@@ -36,6 +36,10 @@ module.exports = {
         installation: {
           import: 'src/views/installation.njk',
           filename: '[name]'
+        },
+        contacts: {
+          import: 'src/views/contacts.njk',
+          filename: '[name]'
         }
       },
       js: {

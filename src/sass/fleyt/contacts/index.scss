@@ -1,0 +1,258 @@
+@import "../mixins";
+.contacts {
+  margin-bottom: 100px;
+
+  @include _999 {
+    margin-bottom: 70px;
+  }
+  @include _767 {
+    margin-bottom: 50px;
+  }
+
+  &:first-of-type {
+    padding-top: 70px;
+    @include _767 {
+      padding-top: 30px;
+    }
+  }
+
+  &--company {
+    background: var(--color-bg-light);
+    padding: 100px 0;
+    margin-bottom: 0;
+    @include _767 {
+      padding: 50px 0;
+    }
+  }
+
+  &__header {
+    margin-top: 50px;
+    @include _999 {
+      margin-top: 30px;
+    }
+  }
+
+  &__offices {
+    @include _999 {
+      display: flex;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+    @include _767 {
+      gap: 0;
+    }
+    @include _resp(530px) {
+      gap: 20px;
+      flex-direction: column;
+    }
+  }
+
+  &__company {
+    @include _767{
+      gap: 0;
+    }
+  }
+
+  &__company-name {
+    font-size: var(--font-size-h4);
+    margin-bottom: 30px;
+  }
+
+  &__legal-details, &__address {
+    font-size: var(--font-size-text-big);
+    margin-bottom: 30px;
+  }
+
+  &__block{
+    padding: 30px;
+    margin-bottom: 50px;
+    margin-left: -30px;
+
+    @include _1279 {
+      margin-left: 0;
+    }
+
+    @include _999 {
+      margin-bottom: 0;
+      width: 50%;
+    }
+
+    @include _767 {
+      padding: 20px;
+    }
+    @include _resp(530px) {
+      width: 100%;
+      text-align: center;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &--box {
+      @include box-shadow;
+      border-radius: 30px 0 30px 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__block-title, &__city {
+    font-size: var(--font-size-h4);
+    margin-bottom: 30px;
+  }
+
+  &__button{
+    @include _resp(530px) {
+      justify-content: center
+    }
+  }
+
+  &__city {
+    margin-bottom: 0;
+    @include _resp(530px) {
+      justify-content: center
+    }
+  }
+
+  &__city-picker, &__shop-name {
+    font-size: var(--font-size-action);
+  }
+
+  &__picker-wrapper {
+    font-size: var(--font-size-text);
+    font-weight: 300;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 120%;
+      height: 1px;
+      bottom: -5px;
+      left: 0;
+      z-index: 10;
+      background: var(--color-secondary);
+      @include _999{
+        width: 1px;
+        height: 400px;
+        top: 0;
+        right: 0;
+        left: auto;
+        bottom: auto;
+      }
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: 120%;
+      height: 5px;
+      width: 5px;
+      bottom: -7px;
+      border-radius: 5px;
+      z-index: 10;
+      background: var(--color-secondary);
+      @include _999{
+        top: 400px;
+        right: -2px;
+        left: auto;
+        bottom: auto;
+      }
+    }
+  }
+
+  &__shop-name {
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  &__address {
+    font-size: var(--font-size-action);
+    margin-bottom: 20px;
+  }
+
+  &__address-description {
+    font-size: var(--font-size-sub_text);
+    font-weight: 300;
+    color: var(--color-text-light);
+  }
+
+  &__phone {
+    font-size: var(--font-size-h4);
+    font-weight: 300;
+    margin-bottom: 10px;
+    @include _1279 {
+      font-size: var(--font-size-h3);
+    }
+    &--primary {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  &__email {
+    display: block;
+    font-size: var(--font-size-action);
+    margin-bottom: 10px;
+  }
+
+  &__work-time {
+    margin-bottom: 30px;
+    li {
+      font-size: var(--font-size-text);
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__time-zone {
+    font-size: var(--font-size-sub_text);
+    font-weight: 300;
+    color: var(--color-text-light);
+  }
+
+
+  &__slogan {
+    font-size: var(--font-size-text-big);
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+
+  &__map {
+    width: 100%;
+    height: 480px;
+    border-radius: 30px 0 30px 0;
+    overflow: hidden;
+  }
+
+  &__map-marker {
+    background: url(../../assets/favicon.svg) var(--color-bg) no-repeat center;
+    background-size: 30px 30px;
+    border-radius: 50px;
+    width: 40px; height: 40px;
+    text-align: center;
+    border: 1px solid var(--color-primary)
+  }
+
+  &__service {
+    margin-top: 30px;
+  }
+
+  &__service-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    > * {
+      flex: 1 50%;
+      max-width: 400px;
+      min-width: 250px;
+    }
+    li {
+      font-size: var(--font-size-text-big);
+      font-weight: 300;
+      margin: 10px 0;
+    }
+  }
+}
