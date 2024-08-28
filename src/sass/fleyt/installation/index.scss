@@ -48,6 +48,23 @@
     > *:last-of-type {
       margin-bottom: 0;
     }
+
+    @include _767 {
+      position: initial;
+      text-align: center;
+    }
+
+    &--sticky {
+      @include _999 {
+        position: sticky;
+        top: 60px;
+        background: var(--color-bg);
+        padding-top: 30px;
+      }
+      @include _767 {
+        top: 50px;
+      }
+    }
   }
 
   &__blockquote {
@@ -138,4 +155,6 @@
       }
     }
   }
+
+  @import "manual";
 }
