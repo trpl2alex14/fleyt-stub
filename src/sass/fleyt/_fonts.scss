@@ -15,7 +15,7 @@ p {
   }
 }
 
-strong {
+strong, b {
   font-weight: 700;
 }
 
@@ -38,7 +38,7 @@ h1 {
   &--bg-black {
     color: var(--color-bg);
 
-    strong {
+    strong, b {
       font-weight: 500;
     }
   }

@@ -1,5 +1,6 @@
-.title {
+@import "mixins";
 
+.title {
   &__wow {
     color: var(--color-secondary);
     text-transform: uppercase;
@@ -9,7 +10,7 @@
     text-transform: uppercase;
     font-weight: 400;
     font-size: var(--font-size-h1);
-    strong {
+    strong, b {
       font-weight: 700;
       font-family: 'Sofia Sans Variable', sans-serif;
     }
@@ -20,7 +21,10 @@
     font-weight: 400;
     font-size: var(--font-size-h2);
     margin-bottom: 20px;
-    strong {
+    @include _767 {
+      text-align: center;
+    }
+    strong, b {
       color: var(--color-secondary);
     }
     span {
@@ -28,11 +32,10 @@
     }
   }
 
-
   &--h3 {
     font-weight: 400;
     font-size: var(--font-size-h3);
-    strong {
+    strong, b {
       color: var(--color-secondary);
       font-weight: 400;
     }

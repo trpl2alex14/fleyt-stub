@@ -379,7 +379,7 @@
     font-size: var(--font-size-text-big);
     font-weight: 300;
 
-    > strong {
+    > strong, > b {
       font-weight: 500;
     }
   }
@@ -389,7 +389,7 @@
     min-width: 250px;
     text-align: center;
 
-    > strong {
+    > strong, > b {
       font-weight: 500;
     }
 

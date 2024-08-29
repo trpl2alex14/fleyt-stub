@@ -94,10 +94,6 @@
     width: calc(var(--grid-width) * 4 + var(--grid-gap) * 3);
     min-width: calc(var(--grid-width) * 4 + var(--grid-gap) * 3);
 
-    @include _1279 {
-
-    }
-
     @include _999 {
       width: 100%;
       min-width: 0;

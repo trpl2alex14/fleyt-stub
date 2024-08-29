@@ -57,30 +57,6 @@
     }
   }
 
-  &__button {
-    &--faq {
-      width: 90%;
-      height: 60px;
-      gap: 5px;
-      stroke: var(--color-primary);
-      @include _1279 {
-        width: 95%;
-        height: 50px;
-      }
-      @include _767 {
-        position: absolute;
-        bottom: 80px;
-        left: 10%;
-        right: 10%;
-        width: auto;
-      }
-
-      &:hover {
-        stroke: var(--color-secondary);
-      }
-    }
-  }
-
   &__examples {
     display: flex;
     flex-direction: column;
