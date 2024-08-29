@@ -40,6 +40,10 @@ module.exports = {
         contacts: {
           import: 'src/views/contacts.njk',
           filename: '[name]'
+        },
+        faq: {
+          import: 'src/views/faq.njk',
+          filename: '[name]'
         }
       },
       js: {

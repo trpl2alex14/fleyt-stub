@@ -2,9 +2,13 @@
 
 .filter {
   margin-top: 50px;
-
   @include _999 {
     margin-top: 20px;
+    flex: 2 !important;
+  }
+
+  &:first-child {
+    margin-top: 0;
   }
 
   &--h-tags {
@@ -16,10 +20,12 @@
     flex-direction: column;
     @include _999 {
       flex-direction: row;
-      gap: 30px;
+      flex-wrap: wrap;
+      gap: 0 30px;
     }
     @include _767 {
-      justify-content: center
+      justify-content: center;
+      text-align: center;
     }
   }
 
@@ -33,9 +39,17 @@
     @include _999 {
       margin-bottom: 20px;
     }
-
     @include _767 {
       flex: 1;
+      white-space: nowrap;
+    }
+
+    span {
+      font-size: var(--font-size-sub_text);
+      color: var(--color-text-light);
+      position: absolute;
+      top: -3px;
+      padding-left: 3px;
     }
 
     &--activate {
@@ -58,6 +72,9 @@
         @include _999 {
           right: 0;
           bottom: -6px;
+        }
+        @include _767 {
+          display: none;
         }
       }
 

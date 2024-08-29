@@ -1,16 +1,58 @@
 @import "mixins";
 
 .content {
-  &--padding {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
   @include _999 {
     padding-top: 10px;
   }
   @include _767 {
     position: relative;
+  }
+
+  &--padding {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  &--only-title {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include _999 {
+      padding-top: 30px;
+      padding-bottom: 0;
+      position: relative;
+    }
+  }
+
+  &--only-title &__header {
+    @include _767 {
+      padding-top: 30px;
+    }
+  }
+
+  &--box {
+    background: var(--color-bg-light);
+    padding: 100px 0;
+    margin-top: 100px;
+    @include _999 {
+      padding: 50px 0;
+      margin-top: 100px;
+    }
+    @include _767 {
+      margin-top: 0;
+    }
+
+    & + & {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  &--box &__body > h3 > span {
+    color: var(--color-gray);
+  }
+
+  &--box &__body > blockquote {
+    background: var(--color-bg);
   }
 
   &__header {
@@ -113,11 +155,10 @@
     color: var(--color-gray);
   }
 
-
   &__body {
     padding-bottom: 50px;
 
-    > h3 {
+    > h3, > blockquote > h3 {
       font-size: var(--font-size-h3);
       margin-top: 50px;
       margin-bottom: 20px;
@@ -128,24 +169,60 @@
       &:first-of-type {
         margin-top: 0;
       }
+
+      span {
+        display: block;
+        color: var(--color-text-light);
+        font-size: var(--font-size-text-big);
+        font-weight: 300;
+      }
     }
 
-    > h4 {
+    > h4, > blockquote > h4 {
       font-size: var(--font-size-h4);
       margin-top: 30px;
       margin-bottom: 20px;
+      &:first-of-type {
+        margin-top: 0;
+      }
       @include _767 {
         margin-top: 10px;
         margin-bottom: 0;
       }
     }
 
-    > p {
+    > p , > blockquote > p {
       font-size: var(--font-size-text);
       > i {
         color: var(--color-text-light);
         font-style: normal;
         font-weight: 300;
+      }
+    }
+
+    > ul, > blockquote > ul {
+      padding-left: 1.5em;
+      margin-bottom: 1em;
+      > li {
+        margin-bottom: .5em;
+        font-weight: 300;
+      }
+    }
+
+    > blockquote {
+      background: var(--color-bg-light);
+      padding: 30px 50px;
+      margin-top: 30px;
+      margin-left: -50px;
+      border-radius: 30px 0 30px 0;
+      @include _1279 {
+        margin-left: -30px;
+      }
+      @include _999 {
+        margin-left: 0;
+      }
+      @include _767 {
+        padding: 20px 30px;
       }
     }
   }

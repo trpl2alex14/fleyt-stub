@@ -1,6 +1,43 @@
 @import "mixins";
 
 .faq {
+
+  &--container {
+    @include _999 {
+      position: relative;
+      padding-bottom: 170px;
+    }
+  }
+
+  &__left {
+    @include _999 {
+      position: initial;
+      gap: 20px;
+    }
+  }
+
+  &__button {
+    width: 90%;
+    height: 60px;
+    gap: 5px;
+    stroke: var(--color-primary);
+    @include _1279 {
+      width: 95%;
+      height: 50px;
+    }
+    @include _767 {
+      position: absolute;
+      bottom: 80px;
+      left: 10%;
+      right: 10%;
+      width: auto;
+    }
+
+    &:hover {
+      stroke: var(--color-secondary);
+    }
+  }
+
   &__item {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -45,7 +82,8 @@
     width: 100%;
     transition: .5s linear;
     @include _767 {
-      padding-left: 30px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
 
     ul {
