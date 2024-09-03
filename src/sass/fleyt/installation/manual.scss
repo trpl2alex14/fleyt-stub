@@ -1,5 +1,5 @@
 @mixin hint($name) {
-  p:has(span[data-img=#{$name}]:hover) ~ div > img[data-for=#{$name}] {
+  p:has(span[data-img=#{$name}]:hover) ~ div > img[data-for=#{$name}], p:has(span[data-img=#{$name}]:active) ~ div > img[data-for=#{$name}] {
     max-height: 400px;
     opacity: 1;
   }

@@ -224,7 +224,7 @@
     transition: .5s ease-out;
   }
 
-  &__model--300:has(&__model-variant:hover) {
+  &__model--300:has(&__model-variant:hover), &__model--300:has(&__model-variant:active) {
     background: url(../../assets/model300-two.jpg) no-repeat left center;
   }
 
@@ -233,7 +233,7 @@
     transition: .5s ease-out;
   }
 
-  &__model--500:has(&__model-variant:hover) {
+  &__model--500:has(&__model-variant:hover), &__model--500:has(&__model-variant:active) {
     background: url(../../assets/model500-250w.jpg) no-repeat left center;
   }
 
