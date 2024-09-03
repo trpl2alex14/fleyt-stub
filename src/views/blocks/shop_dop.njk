@@ -1,0 +1,67 @@
+{% set items = [
+  {
+    'img': "img/fleyt/c_t1.jpg",
+    'wifi': 'Wi-Fi',
+    'color_b': true,
+    'color_w': true,
+    'title' : "Welrok oz",
+    'text' : 'Умный терморегулятор, с <b>управление через интернет</b> с ПК или телефона',
+    'sum' : "3 950",
+    'old': "5 100"
+  },
+  {
+    'img': "img/fleyt/c_t2.jpg",
+    'wifi': 'Wi-Fi',
+    'color_w': true,
+    'title' : "Welrok opt",
+    'text' : 'Терморегулятор в розетку, с <b>управление через интернет</b>',
+    'sum' : "2 050",
+    "count" : "2"
+  },
+  {
+    'img': "img/fleyt/c_t3.jpg",
+    'wifi': 'Wi-Fi',
+    'color_w': true,
+    'color_b': true,
+    'color_g': true,
+    'title' : "Caleo C938",
+    'text' : 'Встраиваемый программируемый регулятор температуры',
+    'sum' : "13 990"
+  },
+  {
+    'img': "img/fleyt/c_t4.jpg",
+    'color_w': true,
+    'color_b': true,
+    'title' : "Caleo C430",
+    'text' : 'Встраиваемый терморегулятор с выносным датчиком температуры',
+    'sum' : "2 060",
+    'old' : "2 900"
+  },
+  {
+    'img': "img/fleyt/c_t5.jpg",
+    'color': true,
+    'title' : "Напольный кронштейн Флэйт",
+    'text' : 'Кронштейн для напольной установки радиаторов, с возможностью фиксации к полу',
+    'sum' : "1 700"
+  },
+  {
+    'img': "img/fleyt/c_t6.jpg",
+    'color': true,
+    'title' : "Соединительный кронштейн ",
+    'text' : 'Кронштейн используется для бесшовной стыковки модулей Флэйт, в единый радиатор',
+    'sum' : "1 700"
+  }
+] %}
+<div class="shop">
+  <div class="container">
+    <h2 class="shop__h3 title title--h3">Терморегуляторы, автоматика<br><span>и комплектующие</span></h2>
+
+    <div class="shop__catalog shop__catalog--related catalog">
+
+      {% for item in items %}
+        {% include  "../elements/card.njk" %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,315 @@
+@import "../mixins";
+& {
+  --secondary-action: var(--color-secondary);
+  --primary-action: var(--color-primary);
+
+  gap: 30px;
+
+  @include _767 {
+    gap: 15px;
+  }
+  @include _resp(550px){
+    gap: 10px;
+  }
+  @include _resp(500px){
+    gap: 15px 6px;
+  }
+
+  .catalog__item {
+
+  }
+
+  .catalog__item:last-child {
+
+  }
+
+  .card {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px 0 20px 0;
+
+    @include _767 {
+      min-width: fit-content;
+      border-radius: 15px 0 15px 0;
+    }
+
+    &--hovered {
+      box-shadow: 0 5px 20px #00000020;
+      transition: .3s ease-out;
+      @include _resp(500px) {
+        box-shadow: 0 0 5px #00000020;
+      }
+
+      &:hover {
+        box-shadow: 0 5px 10px #EE8A1530;
+      }
+    }
+
+    &__image {
+      position: relative;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-end;
+      pointer-events: none;
+      object-fit: cover;
+      @include _resp(500px){
+        object-fit: cover;
+        min-height: 200px;
+      }
+    }
+
+    &__item {
+      padding-top: 16px;
+
+      @include _resp(500px) {
+        padding: 8px 8px 0;
+      }
+
+      &:last-child {
+        background: var(--color-bg);
+        @include _resp(500px) {
+          padding-bottom: 8px;
+        }
+      }
+
+      &--title {
+        min-height: auto;
+        margin-bottom: 10px;
+        @include _resp(500px) {
+          margin-bottom: 0;
+        }
+
+        > a {
+          font-size: var(--font-size-text);
+          font-weight: 500;
+          line-height: 1.5em;
+        }
+      }
+
+      &--text {
+        font-size: var(--font-size-sub_text);
+        @include _resp(500px) {
+          display: none;
+        }
+      }
+
+      &--footer {
+        @include _767 {
+          max-height: 90px;
+          height: 90px;
+          min-height: 90px;
+          padding-top: 0;
+          flex-wrap: wrap;
+          gap: 5px;
+          justify-content: flex-end;
+          align-items: flex-end;
+        }
+      }
+    }
+  }
+
+  .product {
+    cursor: default;
+
+    &__card-image {
+      flex-basis: auto;
+      max-height: max-content;
+      margin-bottom: 112px;
+
+      @include _resp(500px) {
+        margin-bottom: 0;
+        min-height: 170px;
+      }
+      @include _resp(410px){
+        max-height: 240px;
+      }
+
+      & + * {
+        position: absolute;
+        bottom: 72px;
+        max-height: 112px;
+        min-height: 112px;
+        @include _767 {
+          bottom: 94px;
+        }
+        @include _resp(500px) {
+          position: initial;
+          min-height: 48px;
+          max-height: 48px;
+        }
+      }
+
+      &[data-hover] {
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, .7) var(--hover-img) no-repeat center;
+          background-size: contain;
+          opacity: 0;
+          transition: .3s ease-in;
+        }
+
+        &:hover:after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__card-slider {
+      transition: 1s linear;
+      background: var(--color-bg);
+      overflow: initial;
+
+      &:hover {
+        max-height: 400px;
+        @include _resp(500px) {
+          max-height: max-content;
+          flex: none;
+        }
+      }
+    }
+
+    &__card-properties {
+      z-index: 20;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      bottom: calc(100% + -13px);
+      @include _resp(500px) {
+        bottom: auto;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  .property {
+    &--badge {
+      background: var(--color-bg);
+      color: var(--color-primary);
+      font-weight: 500;
+      border-radius: 5px 0 5px 0;
+      border: 1px solid var(--color-bg-light);
+    }
+
+    &--power, &--size, &--tube, &--wifi {
+      padding-left: 22px;
+      background-repeat: no-repeat;
+      background-position: 5px center;
+    }
+
+    &--power {
+      background-image: url(../../assets/icon-power.svg);
+    }
+
+    &--size {
+      background-image: url(../../assets/icon-height.svg);
+    }
+
+    &--tube {
+      background-image: url(../../assets/icon-tube.svg);
+    }
+
+    &--wifi {
+      background-image: url(../../assets/icon-wifi.svg);
+      background-size: 15px;
+    }
+
+    &--color {
+      border: none;
+      background-image: url(../../assets/icon-color.svg);
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 24px;
+      width: 111px;
+    }
+
+    &--color-b, &--color-w, &--color-g {
+      border: 3px solid #fff;
+      background: #000;
+      border-radius: 12px;
+      height: 24px;
+      width: 24px;
+      margin-top: 2px;
+      position: relative;
+    }
+
+    &--color-b{
+      background: #000;
+    }
+
+    &--color-w{
+      background: #fff;
+      &:before {
+        content: "";
+        position: absolute;
+        border: 1px solid #ccc;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: 12px;
+      }
+    }
+
+    &--color-g{
+      background: #aaa;
+    }
+
+    &__measure {
+      color: var(--color-text-light);
+    }
+  }
+
+  .card-actions {
+    width: 100%;
+    justify-content: flex-end;
+    padding-left: 20px;
+    gap: 15px;
+
+    @include _767 {
+      justify-content: space-between;
+      padding-left: 0;
+    }
+
+    &__button {
+      padding: 0;
+      border-radius: 15px 0 15px 0;
+      @include _767 {
+        margin-left: 0;
+        border-radius: 10px 0 10px 0;
+      }
+    }
+
+    .action--button {
+      width: 100%;
+      @include box-shadow;
+      @include _resp(500px) {
+        box-shadow: 0 0 5px rgba(0,0,0,.3);
+      }
+    }
+  }
+
+  .price {
+    flex-direction: column-reverse;
+    align-items: end;
+
+    &__percent {
+      background: var(--color-primary);
+    }
+  }
+
+  .counter {
+    font-size: var(--font-size-h4);
+  }
+}

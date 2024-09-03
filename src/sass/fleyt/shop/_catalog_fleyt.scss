@@ -1,0 +1,36 @@
+@import "../mixins";
+& {
+  --secondary-action: var(--color-secondary);
+  --primary-action: var(--color-primary);
+
+  background: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "a a b" "a a b";
+
+  @include _999 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "a b" "c b" "d e";
+    >*:first-child {
+      grid-area: a;
+      grid-row-end: none;
+    }
+    >*:nth-child(2) {
+      grid-area: c;
+    }
+    >*:nth-child(3) {
+      grid-area: d;
+    }
+    >*:nth-child(4) {
+      grid-area: e;
+    }
+  }
+
+  .catalog__item {
+    max-height: 395px;
+  }
+
+  .catalog__item:last-child {
+    grid-area: b;
+    max-height: 820px;
+  }
+}

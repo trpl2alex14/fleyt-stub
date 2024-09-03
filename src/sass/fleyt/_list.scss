@@ -3,6 +3,12 @@
 .list {
   list-style-type: none;
 
+  &--line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+  }
+
   &--doted, &--text-doted {
     li {
       margin: 1em 0;

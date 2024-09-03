@@ -1,0 +1,373 @@
+@import "../mixins";
+
+.shop {
+  &:first-of-type {
+    padding-top: 200px;
+    @include _999 {
+      padding-top: 100px;
+    }
+    @include _767 {
+      padding-top: 70px;
+    }
+  }
+
+  &--block {
+    background: var(--color-bg-light);
+    padding: 100px 0 200px;
+    @include _999 {
+      padding: 70px 0 100px;
+    }
+    @include _767 {
+      padding: 50px 0 70px;
+    }
+  }
+
+  &__nav {
+    margin-top: 10px;
+    margin-bottom: 50px;
+
+    @include _999 {
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+    @include _767 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    a {
+      position: relative;
+
+      > span {
+        font-size: var(--font-size-sub_text);
+        color: var(--color-text-light);
+        position: absolute;
+        top: -0.5em;
+        padding-left: 3px;
+      }
+    }
+  }
+
+  &__h2 {
+    @include _767{
+      font-size: var(--font-size-h4);
+      text-transform: none;
+    }
+    @include _resp(500px) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__h3 {
+    @include _767{
+      font-size: var(--font-size-h4);
+      text-transform: none;
+      text-align: center;
+    }
+    @include _resp(500px) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__comment{
+    @include _resp(460px) {
+      >p:last-child {
+        display: none;
+      }
+      @include _resp(410px){
+        display: none;
+      }
+    }
+  }
+
+  &__catalog {
+    margin-top: 30px;
+    margin-bottom: 150px;
+    max-width: 100%;
+
+    @include _999 {
+      margin-bottom: 100px;
+    }
+    @include _767 {
+      margin-bottom: 50px;
+      margin-top: 10px;
+    }
+
+    &--fleyt {
+      @import "catalog";
+      @import "catalog_fleyt";
+    }
+
+    &--related {
+      background: url(../../assets/bg_related.jpg) no-repeat right bottom;
+      background-size: auto 480px;
+
+      @import "catalog";
+
+      @include _1279 {
+        background: none;
+      }
+      @include _767 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  &__card {
+    &--text {
+      @include _resp(500px) {
+        font-size: var(--font-size-sub_text);
+      }
+    }
+  }
+
+  &__details {
+    margin-top: 30px;
+    margin-bottom: 150px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include _999 {
+      margin-bottom: 100px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @include _767 {
+      margin-top: 10px;
+      margin-bottom: 70px;
+      gap: 15px;
+    }
+    @include _resp(550px){
+      gap: 10px;
+    }
+    @include _resp(450px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__box {
+    background: var(--color-bg-light);
+    border-radius: 30px 0 30px 0;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @include _767 {
+      padding: 20px;
+      border-radius: 15px 0 15px 0;
+    }
+
+    &--clear {
+      background: #fafafa;
+    }
+
+    &--related {
+      height: 370px;
+      &:last-of-type {
+        display: none;
+        @include _999 {
+          display: block;
+        }
+        @include _resp(450px) {
+          display: none;
+        }
+      }
+    }
+
+    &--spec {
+      height: 450px;
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-position-y: 220px;
+      background-size: contain;
+      @include _1279 {
+        background-position-y: 265px;
+      }
+      @include _767 {
+        background-position: bottom;
+        height: 400px;
+      }
+
+      &:last-of-type {
+        @include _999 {
+          display: none;
+        }
+      }
+    }
+
+    &--flat {
+      padding: 0;
+      background: none;
+    }
+
+    &--contacts {
+      justify-content: center;
+      gap: 30px;
+      @include _1279 {
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        display: none;
+      }
+    }
+
+    &--2row{
+      background: var(--color-bg-light) url(../../assets/2row-shop.png) no-repeat top center;
+      background-size: contain;
+      @include _1279 {
+        background-position: center;
+      }
+    }
+
+    &--line{
+      background: var(--color-bg-light) url(../../assets/line-shop.png) no-repeat bottom center;
+      background-size: contain;
+      @include _1279 {
+        background-position: center;
+      }
+    }
+
+    &--color{
+      background: var(--color-bg-light) url(../../assets/color-shop.jpg) no-repeat center center;
+      background-size: cover;
+    }
+  }
+
+  &__box-text {
+    font-size: var(--font-size-text);
+    span {
+      font-size: var(--font-size-text);
+      color: var(--color-gray);
+    }
+
+    &--bottom, &--bottom-right{
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+      @include _767{
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+      }
+    }
+
+    &--bottom-right{
+      text-align: right;
+    }
+  }
+
+  &__box-title {
+    font-size: var(--font-size-h4);
+    margin-bottom: 20px;
+    @include _767 {
+      font-size: var(--font-size-action);
+      margin-bottom: 10px;
+    }
+    b{
+      color: var(--color-primary);
+      font-size: var(--font-size-h3);
+      font-weight: 500;
+    }
+  }
+
+  &__box-promo {
+    font-size: var(--font-size-text-big);
+    font-weight: 500;
+    text-align: right;
+    margin-top: 20px;
+    span {
+      font-size: var(--font-size-text);
+      color: var(--color-gray);
+    }
+  }
+
+  &__box--color &__box-text{
+    color: var(--color-bg);
+    font-size: var(--font-size-h4);
+    font-weight: 500;
+    span {
+      color: var(--color-bg);
+      font-size: var(--font-size-text-big);
+    }
+  }
+
+  &--block &__box {
+    background: var(--color-bg);
+  }
+
+  &--block &__box--flat {
+    background: none;
+  }
+
+  &__help {
+    margin-top: 30px;
+    margin-bottom: 100px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "a b d" "a c d";
+
+    @include _1279 {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "a b" "a c" "d d";
+    }
+    @include _999 {
+      margin-bottom: 70px;
+    }
+    @include _767 {
+      margin-bottom: 50px;
+      gap: 15px;
+    }
+    @include _resp(550px){
+      gap: 10px;
+    }
+
+    @include _resp(500px){
+      grid-template-columns: 1fr;
+      grid-template-areas: "a" "b" "c";
+    }
+
+    > *:first-child {
+      grid-area: a;
+    }
+
+    > *:last-child {
+      grid-area: d;
+      background: none;
+    }
+  }
+
+  &__bottom {
+    margin-top: 30px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include _767 {
+      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @include _resp(500px) {
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__box-action {
+    margin-top: auto;
+    text-align: right;
+    > .button--primary {
+      width: 100%;
+      height: 50px;
+    }
+  }
+
+  &__box-email {
+    margin-top: 10px;
+    text-align: center;
+    font-size: var(--font-size-h3);
+    line-height: 1.2em;
+  }
+
+}

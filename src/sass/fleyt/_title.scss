@@ -1,6 +1,7 @@
 @import "mixins";
 
 .title {
+  line-height: 1.2em;
   &__wow {
     color: var(--color-secondary);
     text-transform: uppercase;
@@ -23,6 +24,7 @@
     margin-bottom: 20px;
     @include _767 {
       text-align: center;
+      margin-bottom: 10px;
     }
     strong, b {
       color: var(--color-secondary);
@@ -39,10 +41,28 @@
       color: var(--color-secondary);
       font-weight: 400;
     }
+    span:not(.title__wow) {
+      color: var(--color-text-light);
+      font-weight: 300;
+      font-size: var(--font-size-h4);
+    }
   }
 
   &--h4 {
     font-weight: 300;
     font-size: var(--font-size-h4);
+  }
+
+  &--not-mg{
+    margin: 0;
+  }
+
+  &--sub-title {
+    font-weight: 400;
+    font-size: var(--font-size-h3);
+    color: var(--color-gray);
+    @include _767 {
+      text-align: center;
+    }
   }
 }

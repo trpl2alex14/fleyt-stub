@@ -44,6 +44,10 @@ module.exports = {
         faq: {
           import: 'src/views/faq.njk',
           filename: '[name]'
+        },
+        shop: {
+          import: 'src/views/shop.njk',
+          filename: '[name]'
         }
       },
       js: {

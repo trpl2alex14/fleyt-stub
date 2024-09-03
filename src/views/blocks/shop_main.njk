@@ -1,0 +1,85 @@
+{% set items = [
+  {
+    'img': "img/fleyt/c250-30.jpg",
+    'hover': '/img/fleyt/c250-30_h.png',
+    'power' : 250,
+    'size' : 30,
+    'tube' : 6,
+    'title' : "Модуль 6 секций 250Вт-30",
+    'text' : 'Трубчатый электрический радиатор отопления Флэйт, высотой 30 см, мощностью 250Вт',
+    'sum' : "23 900",
+    'count' : '12',
+    'color': true
+  },
+  {
+    'img': "img/fleyt/c250-50.jpg",
+    'hover': '/img/fleyt/c250-50_h.png',
+    'power' : 250,
+    'size' : 50,
+    'tube' : 3,
+    'title' : "Модуль 3 секции 250Вт-50",
+    'text' : 'Трубчатый электрический радиатор отопления Флэйт, высотой 50 см, мощностью 250Вт',
+    'sum' : "15 500",
+    'old' : "20 100",
+    'count' : '0',
+    'color': true
+  },
+  {
+    'img': "img/fleyt/c500-50.jpg",
+    'hover': '/img/fleyt/c500-50_h.png',
+    'power' : 500,
+    'size' : 50,
+    'tube' : 6,
+    'title' : "Модуль 6 секций 500Вт-50",
+    'text' : 'Трубчатый электрический радиатор отопления Флэйт, высотой 50 см, мощностью 500Вт',
+    'sum' : "23 900",
+    'count' : '3',
+    'color': true
+  },
+  {
+    'img': "img/fleyt/c500-150.jpg",
+    'power' : 500,
+    'size' : 150,
+    'tube' : 3,
+    'title' : "Вертикальный модуль 3 секции 500Вт-150",
+    'text' : "Трубчатый вертикальный электрический радиатор отопления Флэйт,<br> высотой 150 см,<br> мощностью 500Вт",
+    'sum' : "32 500",
+    'old' : "35 700",
+    'count' : '0',
+    'color_w': true,
+    'color_b': true,
+    'color_g': true
+  }
+] %}
+
+<div class="shop">
+  <div class="container">
+    <h1 class="title title--h1">Магазин Флэйт</h1>
+    <nav class="shop__nav">
+      <ul class="list list--line">
+        <li><a href="#" class="link link--primary">Радиаторы Флэйт<span>4</span></a></li>
+        <li><a href="#" class="link link--primary">Автоматика<span>7</span></a></li>
+        <li><a href="#" class="link link--primary">Варианты<span>3</span></a></li>
+        <li><a href="#" class="link link--primary">Спецпредложения<span>2</span></a></li>
+        <li><a href="#" class="link link--primary">Помощь с выбором</a></li>
+      </ul>
+    </nav>
+    <div class="shop__catalog shop__catalog--fleyt catalog">
+      <div class="shop__card shop__card--text catalog__item">
+        <h2 class="shop__h2 title title--h3">Радиаторы Флэйт</h2>
+        <div class="shop__comment">
+          <p>Выберите интересующую модель по высоте, определитесь с цветом и количеством модулей (суммарной мощностью
+            радиатора)</p>
+          <p>Нажмите кнопку "Оформить заказ", укажите город доставки и&nbsp;данные получателя. Оплатите заказ удобным
+            для&nbsp;вас
+            способом. </p>
+        </div>
+      </div>
+
+      {% for item in items %}
+        {% include  "../elements/card.njk" %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>

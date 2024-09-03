@@ -1,0 +1,18 @@
+{% extends "layouts/template.njk" %}
+
+{% block title %}&#171;Флэйт&#187; - Каталог интернет магазина{% endblock %}
+
+{% block css %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.shop.css">
+  <link rel="stylesheet" href="@styles/fleyt/shop/index.scss">
+{% endblock %}
+
+{% block content %}
+
+  {% include "blocks/shop_main.njk" %}
+  {% include "blocks/shop_dop.njk" %}
+  {% include "blocks/shop_spec.html" %}
+  {% include "blocks/shop_help.html" %}
+
+{% endblock %}

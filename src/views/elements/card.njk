@@ -1,0 +1,70 @@
+<div class="shop__card catalog__item">
+  <div class="card card--hovered product product--card">
+    <div class="card__item card__item--image product__card-image" {% if item.hover %}data-hover{% endif %}
+         style="--hover-img: url({{ item.hover }});">
+      <a href="#"><img src="{{ item.img }}" alt="" class="card__image card__image--contain"></a>
+    </div>
+    <div class="card__item product__card-slider">
+      <div class="product__card-properties">
+        {% if item.power %}
+          <div class="property property--badge property--power">{{ item.power }}<span
+              class="property__measure">Вт</span></div>
+        {% endif %}
+        {% if item.size %}
+          <div class="property property--badge property--size">{{ item.size }}<span class="property__measure">см</span>
+          </div>
+        {% endif %}
+        {% if item.tube %}
+          <div class="property property--badge property--tube">{{ item.tube }}</div>
+        {% endif %}
+        {% if item.wifi %}
+          <div class="property property--badge property--wifi">{{ item.wifi }}</div>
+        {% endif %}
+        {% if item.color %}
+          <div class="property property--badge property--color">&nbsp</div>
+        {% endif %}
+        {% if item.color_b %}
+          <div class="property property--badge property--color-b">&nbsp</div>
+        {% endif %}
+        {% if item.color_w %}
+          <div class="property property--badge property--color-w">&nbsp</div>
+        {% endif %}
+        {% if item.color_g %}
+          <div class="property property--badge property--color-g">&nbsp</div>
+        {% endif %}
+      </div>
+
+      <div class="product__card-title card__item--title"><a href="#" class="action action--text">{{ item.title }}</a>
+      </div>
+      <div class="card__item--text">{{ item.text | safe }}</div>
+
+    </div>
+    <div class="card__item card__item--footer card__item--toolbar">
+      <div class="price price--large">
+        {% if item.old %}
+          <div class="price__discount">
+            <div class="price__old">{{ item.old }}</div>
+            <div class="price__percent">20%</div>
+          </div>
+        {% endif %}
+        <div class="price__amount price__amount--currency">{{ item.sum }}</div>
+      </div>
+      <div class="card-actions">
+        {% if item.count > 0 %}
+          <div class="counter compact">
+            <a class="action action--link"><i class="material-icons">remove_circle_outline</i></a>
+            {{ item.count }}
+            <a class="action action--link"><i class="material-icons">add_circle_outline</i></a>
+          </div>
+          <button class="action card-actions__button action card-actions__button--small action--outlined">
+            <i class="material-icons">question_mark</i>
+          </button>
+        {% else %}
+          <button class="action card-actions__button action action--button">
+            Выбрать
+          </button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

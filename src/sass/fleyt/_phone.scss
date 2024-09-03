@@ -7,9 +7,16 @@
     text-align: right;
   }
 
+  &--shop {
+    font-size: var(--font-size-h3);
+    font-weight: normal;
+    text-align: center;
+  }
+
   &__number {
     white-space: nowrap;
     letter-spacing: .03em;
+    line-height: 1em;
     @include _767 {
       font-weight: 500;
     }
